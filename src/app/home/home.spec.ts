@@ -43,5 +43,9 @@ describe('HomeComponent', () => {
     expect(sections[1].tagName.toLowerCase()).toBe('app-destinations');
     expect(sections[2].tagName.toLowerCase()).toBe('app-packages');
     expect(sections[3].tagName.toLowerCase()).toBe('app-why-choose');
+
+    const heading = compiled.querySelector('#why-choose-heading');
+    expect(heading).toBeTruthy();
+    expect(heading?.textContent?.trim()).toBe('Travel planning, made personal.');
   });
 });

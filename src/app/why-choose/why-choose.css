@@ -7,12 +7,13 @@
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
   padding-top: var(--section-padding-compact-y);
-  padding-bottom: var(--section-padding-y);
+  padding-bottom: var(--section-padding-compact-y);
+  scroll-margin-top: 68px;
 }
 
 .why-choose__header {
   max-width: 680px;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
 .why-choose__eyebrow {
@@ -25,7 +26,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-secondary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .why-choose__eyebrow-accent {
@@ -43,7 +44,7 @@
   color: var(--color-text);
   line-height: var(--line-height-section);
   letter-spacing: var(--letter-spacing-section);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-xs);
   text-wrap: balance;
 }
 
@@ -66,7 +67,7 @@
 .why-choose__item {
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   background-color: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -84,19 +85,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   color: var(--color-secondary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
   flex-shrink: 0;
 }
 
 .why-choose__icon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
 }
 
 .why-choose__item-title {
@@ -111,7 +112,7 @@
 .why-choose__item-desc {
   font-family: var(--font-family-body);
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--color-text);
   opacity: 0.82;
   margin: 0;
@@ -124,6 +125,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .section--why-choose {
+    scroll-margin-top: 60px;
+  }
+}
+
 @media (max-width: 680px) {
   .why-choose__grid {
     grid-template-columns: 1fr;
@@ -131,10 +138,10 @@
   }
 
   .why-choose__header {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
   }
 
   .why-choose__item {
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
 }
