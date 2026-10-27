@@ -1,0 +1,43 @@
+<article class="package-card">
+  <!-- Card Image Frame -->
+  <div class="package-card__media">
+    <img
+      [src]="package().image"
+      [alt]="package().alt"
+      class="package-card__img"
+      width="600"
+      height="375"
+      loading="lazy"
+    />
+    <div class="package-card__duration-badge" aria-label="Trip duration">
+      {{ package().duration }}
+    </div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="package-card__body">
+    <div class="package-card__meta">
+      <span class="package-card__destination">{{ package().destination }}</span>
+    </div>
+
+    <h3 class="package-card__title">{{ package().title }}</h3>
+
+    <ul class="package-card__highlights" aria-label="Trip highlights">
+      @for (highlight of package().highlights; track highlight) {
+        <li class="package-card__highlight-item">
+          <span class="package-card__bullet" aria-hidden="true">•</span>
+          <span>{{ highlight }}</span>
+        </li>
+      }
+    </ul>
+
+    <!-- Non-dead CTA linking to enquiry handoff with package identifier -->
+    <a
+      [href]="'#contact?package=' + package().id"
+      class="btn btn--primary package-card__btn"
+      [attr.aria-label]="'Explore and enquire about ' + package().title"
+    >
+      Explore Package
+    </a>
+  </div>
+</article>

@@ -1,0 +1,60 @@
+<header class="header" role="banner">
+  <div class="container header-bar">
+    <a href="#" class="brand" (click)="closeMobileMenu()" aria-label="WAYORA Travels Homepage">
+      <span class="brand-name">WAYORA</span>
+      <span class="brand-sub">TRAVELS</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary Navigation">
+      <ul class="nav-list">
+        @for (link of navLinks; track link.href) {
+          <li>
+            <a [href]="link.href" class="nav-link">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact" class="btn btn--primary header-cta">Plan Your Trip</a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        [class.is-active]="isMobileMenuOpen()"
+        [attr.aria-expanded]="isMobileMenuOpen()"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMobileMenu()"
+      >
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  @if (isMobileMenuOpen()) {
+    <div class="backdrop" (click)="closeMobileMenu()" aria-hidden="true"></div>
+  }
+
+  <div id="mobile-nav" class="mobile-drawer" [class.is-open]="isMobileMenuOpen()" [attr.aria-hidden]="!isMobileMenuOpen()">
+    <div class="container mobile-body">
+      <nav aria-label="Mobile Navigation">
+        <ul class="mobile-list">
+          @for (link of navLinks; track link.href) {
+            <li class="mobile-item">
+              <a [href]="link.href" class="mobile-link" (click)="closeMobileMenu()">
+                <span>{{ link.label }}</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn--primary mobile-cta" (click)="closeMobileMenu()">
+        Plan Your Trip
+      </a>
+    </div>
+  </div>
+</header>

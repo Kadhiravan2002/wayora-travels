@@ -1,0 +1,26 @@
+<section id="destinations" class="section section--destinations" aria-labelledby="destinations-heading">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="destinations__header">
+      <div class="destinations__eyebrow">
+        <span class="destinations__eyebrow-accent" aria-hidden="true"></span>
+        <span>EXPLORE INDIA</span>
+      </div>
+
+      <h2 id="destinations-heading" class="destinations__heading">
+        Find your next escape.
+      </h2>
+
+      <p class="destinations__lead">
+        From tranquil backwaters to royal cities and mountain retreats, discover a destination that feels like you.
+      </p>
+    </div>
+
+    <!-- 4-Card Responsive Grid -->
+    <div class="destinations__grid">
+      @for (dest of destinations; track dest.id) {
+        <app-destination-card [destination]="dest"></app-destination-card>
+      }
+    </div>
+  </div>
+</section>

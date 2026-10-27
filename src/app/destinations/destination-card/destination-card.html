@@ -1,0 +1,24 @@
+<article class="card">
+  <a [href]="destination().link" class="card__link" [attr.aria-label]="'Explore ' + destination().name + ' - ' + destination().category">
+    <div class="card__media">
+      <img
+        [src]="destination().image"
+        [alt]="destination().alt"
+        class="card__img"
+        width="600"
+        height="450"
+        loading="lazy"
+      />
+    </div>
+    <div class="card__body">
+      <div class="card__header">
+        <h3 class="card__title">{{ destination().name }}</h3>
+        <p class="card__category">{{ destination().category }}</p>
+      </div>
+      <div class="card__action" aria-hidden="true">
+        <span>Explore destination</span>
+        <span class="card__arrow">→</span>
+      </div>
+    </div>
+  </a>
+</article>

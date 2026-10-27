@@ -1,1 +1,485 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==========================================================================
+   WAYORA TRAVELS — GLOBAL DESIGN SYSTEM
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Brand Colour Tokens
+   Strict 6-colour palette with semantic role mappings
+   -------------------------------------------------------------------------- */
+:root {
+  /* Core brand palette */
+  --color-primary: #D97732;       /* Primary accent / Terracotta */
+  --color-secondary: #243D32;     /* Secondary accent / Forest Green */
+  --color-background: #FAF7F0;    /* Main background / Warm Ivory */
+  --color-surface: #FFFFFF;       /* White / Cards & Alternate surfaces */
+  --color-text: #252722;          /* Primary text / Charcoal */
+  --color-border: #E8DCC8;        /* Borders and dividers / Sand */
+
+  /* Exact brand color aliases */
+  --color-terracotta: #D97732;
+  --color-forest-green: #243D32;
+  --color-warm-ivory: #FAF7F0;
+  --color-white: #FFFFFF;
+  --color-charcoal: #252722;
+  --color-sand: #E8DCC8;
+
+  /* Semantic tokens */
+  --color-cta: var(--color-primary);
+  --color-cta-text: var(--color-surface);
+  --color-brand: var(--color-secondary);
+  --color-brand-contrast: var(--color-surface);
+  --color-page-bg: var(--color-background);
+  --color-card-bg: var(--color-surface);
+  --color-text-primary: var(--color-text);
+  --color-divider: var(--color-border);
+  --color-focus-ring: var(--color-primary);
+
+  /* ------------------------------------------------------------------------
+     2. Typography Tokens
+     - Manrope: Headings, Display, Destination/Package titles, Brand wordmark (600, 700, 800)
+     - Inter: Body, Navigation, Buttons, Links, Forms, Captions (400, 500, 600, 700)
+     ------------------------------------------------------------------------ */
+  --font-family-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Responsive Fluid Font Sizes (using clamp) */
+  /* Hero heading: ~38–46px mobile to ~56–72px desktop */
+  --font-size-hero: clamp(2.375rem, 1.6rem + 3.2vw, 4.25rem);
+
+  /* Section heading: ~28–34px mobile to ~36–44px desktop */
+  --font-size-section: clamp(1.75rem, 1.45rem + 1.25vw, 2.625rem);
+
+  /* Card heading: ~18–22px mobile to ~20–24px desktop */
+  --font-size-card: clamp(1.125rem, 1.05rem + 0.4vw, 1.4375rem);
+
+  /* Body: ~16px mobile to ~16–18px desktop */
+  --font-size-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+
+  /* Navigation & Buttons: ~14–16px */
+  --font-size-ui: clamp(0.875rem, 0.84rem + 0.15vw, 1rem);
+
+  /* Captions: ~12–14px */
+  --font-size-caption: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+
+  /* Line Heights */
+  --line-height-hero: 1.12;
+  --line-height-section: 1.22;
+  --line-height-card: 1.35;
+  --line-height-body: 1.6;
+  --line-height-ui: 1.25;
+  --line-height-caption: 1.45;
+
+  /* Letter Spacing */
+  --letter-spacing-hero: -0.025em;
+  --letter-spacing-section: -0.02em;
+  --letter-spacing-card: -0.01em;
+  --letter-spacing-body: 0;
+  --letter-spacing-ui: 0.01em;
+  --letter-spacing-caption: 0.015em;
+
+  /* ------------------------------------------------------------------------
+     3. Global Spacing & Layout Tokens
+     ------------------------------------------------------------------------ */
+  /* Consistent spacing scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;           /* 8px: small spacing */
+  --space-sm: 12px;
+  --space-md: 16px;          /* 16px: standard spacing */
+  --space-lg: 24px;          /* 24px: medium-large spacing */
+  --space-xl: 32px;          /* 32px: large spacing */
+  --space-2xl: 48px;         /* 48px: compact section spacing */
+  --space-3xl: 64px;         /* 64px: larger section spacing */
+  --space-4xl: 80px;         /* 80px: larger section spacing */
+
+  /* Responsive Page Gutters: 20-24px mobile, 40-48px tablet, up to 80px desktop */
+  --gutter-page: clamp(1.25rem, 5.5vw, 5rem);
+
+  /* Layout Container */
+  --container-max-width: 1240px;
+
+  /* Section Vertical Padding */
+  --section-padding-y: clamp(3rem, 2rem + 3vw, 5rem);               /* 48px mobile to 80px desktop */
+  --section-padding-hero-y: clamp(4rem, 2.5rem + 4.5vw, 7.5rem);    /* 64px mobile to 120px desktop */
+  --section-padding-compact-y: clamp(2rem, 1.5rem + 1.5vw, 3rem);   /* 32px mobile to 48px desktop */
+
+  /* ------------------------------------------------------------------------
+     4. Radii, Transitions, and UI Metrics
+     ------------------------------------------------------------------------ */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-btn: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --btn-min-height: 48px;
+  --btn-padding-x: 20px;
+
+  --transition-base: 0.2s ease;
+  --transition-fast: 0.15s ease;
+
+  --viewport-height: 100vh;
+  --viewport-height-dvh: 100dvh;
+}
+
+/* --------------------------------------------------------------------------
+   5. Modern Resets & Viewport Conventions (Preventing Horizontal Overflow)
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   6. Semantic Typography Conventions
+   -------------------------------------------------------------------------- */
+h1,
+.text-hero {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-hero);
+  letter-spacing: var(--letter-spacing-hero);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+h2,
+.text-section-heading {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-section);
+  letter-spacing: var(--letter-spacing-section);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+h3,
+h4,
+.text-card-heading {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-card);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-card);
+  letter-spacing: var(--letter-spacing-card);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+p,
+.text-body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+}
+
+.text-brand {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.03em;
+  color: var(--color-secondary);
+}
+
+.text-ui,
+.nav-link {
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-ui);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-ui);
+  letter-spacing: var(--letter-spacing-ui);
+}
+
+small,
+.text-caption {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-caption);
+  letter-spacing: var(--letter-spacing-caption);
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   7. Layout & Container Conventions
+   -------------------------------------------------------------------------- */
+.container,
+.content-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-page);
+  padding-right: var(--gutter-page);
+  box-sizing: border-box;
+}
+
+.section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+  position: relative;
+  width: 100%;
+}
+
+.section--hero {
+  padding-top: var(--section-padding-hero-y);
+  padding-bottom: var(--section-padding-hero-y);
+}
+
+.section--compact {
+  padding-top: var(--section-padding-compact-y);
+  padding-bottom: var(--section-padding-compact-y);
+}
+
+.section--surface {
+  background-color: var(--color-surface);
+}
+
+.section--brand {
+  background-color: var(--color-secondary);
+  color: var(--color-surface);
+}
+
+.section--brand h1,
+.section--brand h2,
+.section--brand h3,
+.section--brand h4,
+.section--brand p {
+  color: var(--color-surface);
+}
+
+/* Viewport-aware utility classes */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.h-screen {
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* --------------------------------------------------------------------------
+   8. Shared Button & Link Conventions
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--btn-min-height);
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--radius-btn);
+  border: 2px solid transparent;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-ui);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-fast),
+    opacity var(--transition-base);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:disabled,
+.btn.is-disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 1. Primary Button: Terracotta background, white text */
+.btn--primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.btn--primary:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+.btn--primary:active:not(:disabled) {
+  filter: brightness(0.85);
+}
+
+/* 2. Secondary Button: Transparent/Ivory background, Forest Green border & text */
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary);
+  color: var(--color-surface);
+}
+
+.btn--secondary:focus-visible {
+  outline-color: var(--color-secondary);
+}
+
+/* 3. Text Link: Terracotta text with restrained hover treatment */
+.text-link,
+.btn--link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+  font-family: var(--font-family-ui);
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition:
+    color var(--transition-base),
+    text-decoration-color var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.text-link:hover,
+.btn--link:hover {
+  text-decoration-color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.text-link:active,
+.btn--link:active {
+  opacity: 0.7;
+}
+
+.text-link:focus-visible,
+.btn--link:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Accessible skip-link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-ui);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-ui);
+  text-decoration: none;
+  z-index: 2000;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   9. Accessibility: Reduced Motion Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
