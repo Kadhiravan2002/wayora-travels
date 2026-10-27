@@ -71,4 +71,12 @@ describe('WhyChooseComponent', () => {
       expect(iconWrap).toBeTruthy();
     });
   });
+
+  it('should ensure all icons are decorative and hidden from screen readers', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const iconWraps = compiled.querySelectorAll('.why-choose__icon-wrap');
+    iconWraps.forEach((wrap) => {
+      expect(wrap.getAttribute('aria-hidden')).toBe('true');
+    });
+  });
 });
