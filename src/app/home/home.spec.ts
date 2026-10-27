@@ -33,4 +33,15 @@ describe('HomeComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('app-packages')).toBeTruthy();
   });
+
+  it('should render the why-choose section directly below packages', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-why-choose')).toBeTruthy();
+
+    const sections = compiled.children;
+    expect(sections[0].tagName.toLowerCase()).toBe('app-hero');
+    expect(sections[1].tagName.toLowerCase()).toBe('app-destinations');
+    expect(sections[2].tagName.toLowerCase()).toBe('app-packages');
+    expect(sections[3].tagName.toLowerCase()).toBe('app-why-choose');
+  });
 });
