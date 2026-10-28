@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { DestinationCardComponent } from './destination-card';
 import { Destination } from '../destination.model';
 
@@ -9,15 +10,16 @@ describe('DestinationCardComponent', () => {
   const mockDestination: Destination = {
     id: 'kerala',
     name: 'Kerala',
-    category: 'Backwaters & nature',
+    category: 'Backwaters and green landscapes',
     image: 'images/destinations/kerala.jpg',
     alt: 'Traditional houseboat on peaceful Kerala backwaters',
-    link: '#destinations',
+    link: '/contact?destination=kerala',
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DestinationCardComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DestinationCardComponent);
@@ -36,7 +38,7 @@ describe('DestinationCardComponent', () => {
     const category = compiled.querySelector('.card__category');
 
     expect(title?.textContent?.trim()).toBe('Kerala');
-    expect(category?.textContent?.trim()).toBe('Backwaters & nature');
+    expect(category?.textContent?.trim()).toBe('Backwaters and green landscapes');
   });
 
   it('should render image with src and alt', () => {
@@ -48,10 +50,26 @@ describe('DestinationCardComponent', () => {
     expect(img.getAttribute('alt')).toBe('Traditional houseboat on peaceful Kerala backwaters');
   });
 
-  it('should render interactive affordance text and arrow', () => {
+  it('should render overlapping circular action arrow with northeast SVG', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const action = compiled.querySelector('.card__action');
-    expect(action?.textContent).toContain('Explore destination');
-    expect(action?.textContent).toContain('→');
+    const actionBtn = compiled.querySelector('.card__action-btn');
+    expect(actionBtn).toBeTruthy();
+
+    const svg = actionBtn?.querySelector('svg');
+    expect(svg).toBeTruthy();
+  });
+
+  it('should render non-rating decorative brand motif', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const motif = compiled.querySelector('.card__motif');
+    expect(motif).toBeTruthy();
+    expect(motif?.textContent).toContain('✦');
+  });
+
+  it('should configure card link with destination query param', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const link = compiled.querySelector('.card__link') as HTMLAnchorElement;
+    expect(link.getAttribute('href')).toContain('/contact');
+    expect(link.getAttribute('href')).toContain('destination=kerala');
   });
 });

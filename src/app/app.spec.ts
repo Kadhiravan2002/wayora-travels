@@ -23,6 +23,13 @@ describe('App', () => {
     expect(compiled.querySelector('app-header')).toBeTruthy();
   });
 
+  it('should render the shared footer component', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
+  });
+
   it('should render the main content area with router outlet', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();

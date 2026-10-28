@@ -1,14 +1,14 @@
 <section id="packages" class="section section--packages" aria-labelledby="packages-heading">
   <div class="container">
     <!-- Section Header -->
-    <div class="packages__header">
+    <div class="packages__header reveal">
       <div class="packages__eyebrow">
         <span class="packages__eyebrow-accent" aria-hidden="true"></span>
         <span>CURATED FOR YOU</span>
       </div>
 
       <h2 id="packages-heading" class="packages__heading">
-        Journeys worth remembering.
+        Journeys worth <span class="highlight-gold">remembering.</span>
       </h2>
 
       <p class="packages__lead">
@@ -17,7 +17,7 @@
     </div>
 
     <!-- 3-Card Single-Row Desktop Grid -->
-    <div class="packages__grid">
+    <div class="packages__grid reveal-stagger-directional">
       @for (pkg of packages; track pkg.id) {
         <app-package-card [package]="pkg"></app-package-card>
       }

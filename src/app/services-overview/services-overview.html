@@ -1,0 +1,196 @@
+<section
+  class="section section--ivory services-overview"
+  aria-labelledby="services-overview-heading"
+>
+  <div class="container services-overview__container">
+    <!-- Left Column: Layered Travel Visual -->
+    <div class="services-overview__visual reveal-left" aria-hidden="true">
+      <!-- Decorative Background Shapes & Flight Path SVG -->
+      <div class="services-overview__shapes">
+        <div class="services-overview__shape-gold"></div>
+        <div class="services-overview__shape-indigo"></div>
+        <svg class="services-overview__flight-path" viewBox="0 0 400 480" fill="none">
+          <path
+            d="M 30,380 C 10,240 60,120 180,90 C 290,60 360,110 370,190 C 375,230 350,300 280,330 C 210,360 170,410 180,460"
+            stroke="var(--color-antique-gold)"
+            stroke-width="1.75"
+            stroke-dasharray="4 6"
+            stroke-linecap="round"
+            opacity="0.75"
+          />
+          <!-- Small Airplane Illustration -->
+          <g transform="translate(345, 130) rotate(42)">
+            <path
+              d="M12 2L15 9L22 10.5L16 15L17.5 22L12 18.5L6.5 22L8 15L2 10.5L9 9L12 2Z"
+              fill="var(--color-antique-gold)"
+              stroke="var(--color-royal-indigo)"
+              stroke-width="1"
+            />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Main Vertically Oriented Travel Photograph Frame -->
+      <div class="services-overview__img-frame">
+        <img
+          src="images/services-kerala-houseboat.jpg"
+          alt="Traditional wooden houseboat sailing along scenic Kerala backwaters in Alappuzha"
+          class="services-overview__main-img"
+          width="420"
+          height="540"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Floating Card 1: Top-Left -->
+      <div class="services-overview__floating-card services-overview__floating-card--top">
+        <div class="floating-card__icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+        </div>
+        <div class="floating-card__body">
+          <span class="floating-card__title">Explore India</span>
+          <span class="floating-card__desc">Curated Heritage & Nature</span>
+        </div>
+      </div>
+
+      <!-- Floating Card 2: Mid-Right (Overlapping) -->
+      <div class="services-overview__floating-card services-overview__floating-card--right">
+        <div class="floating-card__icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div class="floating-card__body">
+          <span class="floating-card__title">Thoughtfully Planned</span>
+          <span class="floating-card__desc">Paced for your rhythm</span>
+        </div>
+      </div>
+
+      <!-- Floating Card 3: Bottom-Left -->
+      <div class="services-overview__floating-card services-overview__floating-card--bottom">
+        <div class="floating-card__icon-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+        </div>
+        <div class="floating-card__body">
+          <span class="floating-card__title">Travel Your Way</span>
+          <span class="floating-card__desc">Customized Itineraries</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Heading & 2x2 Service Cards Grid -->
+    <div class="services-overview__content reveal">
+      <div class="eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>OUR TRAVEL SERVICES</span>
+      </div>
+
+      <h2 id="services-overview-heading" class="services-overview__heading">
+        Comprehensive Travel Solutions <span class="services-overview__highlight">Across India</span>
+      </h2>
+
+      <p class="services-overview__lead">
+        Thoughtfully planned journeys, comfortable stays, and memorable local experiences across India.
+      </p>
+
+      <!-- 2x2 Service Grid -->
+      <div class="services-overview__grid reveal-stagger-directional">
+        @for (service of services; track service.id; let i = $index) {
+          <article class="service-card">
+            <div class="service-card__header">
+              <div class="service-card__icon-box">
+                @switch (service.id) {
+                  @case ('itinerary') {
+                    <svg
+                      class="service-icon-svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                      <line x1="9" y1="3" x2="9" y2="18"></line>
+                      <line x1="15" y1="6" x2="15" y2="21"></line>
+                    </svg>
+                  }
+                  @case ('packages') {
+                    <svg
+                      class="service-icon-svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"></path>
+                      <line x1="12" y1="11" x2="12" y2="13"></line>
+                    </svg>
+                  }
+                  @case ('accommodations') {
+                    <svg
+                      class="service-icon-svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 21h18"></path>
+                      <path d="M5 21V7l7-4 7 4v14"></path>
+                      <path d="M9 10h6"></path>
+                      <path d="M9 14h6"></path>
+                      <path d="M10 21v-3h4v3"></path>
+                    </svg>
+                  }
+                  @case ('experiences') {
+                    <svg
+                      class="service-icon-svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M8 21l4-7 4 7"></path>
+                      <path d="M2 21l7-12 5 8.5"></path>
+                      <path d="M14 17.5l2.5-4.5 5.5 8"></path>
+                      <circle cx="18" cy="6" r="2.5"></circle>
+                    </svg>
+                  }
+                }
+              </div>
+              <span class="service-card__number" aria-hidden="true">0{{ i + 1 }}</span>
+            </div>
+
+            <h3 class="service-card__title">{{ service.title }}</h3>
+            <p class="service-card__desc">{{ service.description }}</p>
+          </article>
+        }
+      </div>
+
+      <!-- Bottom Actions -->
+      <div class="services-overview__actions">
+        <a routerLink="/services" class="services-overview__btn" aria-label="View All Travel Services">
+          <span>View All Travel Services</span>
+          <span class="services-overview__btn-icon" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

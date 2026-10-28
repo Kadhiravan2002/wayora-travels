@@ -1,0 +1,275 @@
+<!-- 1. Page Banner -->
+<section class="page-banner-section">
+  <div class="container">
+    <div class="page-banner" aria-labelledby="services-banner-title">
+      <div class="page-banner__backdrop" aria-hidden="true">
+        <img
+          src="images/kerala-tea-plantations.jpg"
+          alt=""
+          class="page-banner__bg"
+          loading="eager"
+        />
+        <div class="page-banner__overlay"></div>
+      </div>
+      <div class="page-banner__content">
+        <div class="page-banner__eyebrow">
+          <span class="eyebrow-accent" aria-hidden="true"></span>
+          <span>WHAT WE OFFER</span>
+        </div>
+        <h1 id="services-banner-title" class="page-banner__title">Our Travel Services</h1>
+        <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
+          <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
+          <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
+          <span class="page-banner__breadcrumb-current">Services</span>
+        </nav>
+        <p class="page-banner__subtitle">
+          Comprehensive, dependable travel planning services designed to turn your Indian travel vision
+          into a seamless reality.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Services Overview Section (Redesigned Editorial Layout matching reference) -->
+<section
+  class="section section--surface services-main"
+  aria-labelledby="services-overview-heading"
+>
+  <div class="container services-main__container">
+    <!-- Centered Section Header -->
+    <div class="services-main__header reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>EXPERTISE & SUPPORT</span>
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+      </div>
+      <h2 id="services-overview-heading" class="services-main__heading">
+        Thoughtful services for discerning <span class="highlight-gold">travelers.</span>
+      </h2>
+      <p class="services-main__lead">
+        Every service is shaped by our passion for India's regional diversity and our dedication to personal, unhurried travel assistance.
+      </p>
+    </div>
+
+    <!-- 2x2 Services Grid (Left Photograph + Right Content) -->
+    <div class="services-main__grid reveal-stagger-directional">
+      @for (item of servicesList; track item.id) {
+        <article class="service-detail-card">
+          <!-- Left: Tall Rectangular Travel Photograph -->
+          <div class="service-detail-card__media">
+            <img
+              [src]="item.image"
+              [alt]="item.title"
+              class="service-detail-card__img"
+              width="210"
+              height="350"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Right: Content Column -->
+          <div class="service-detail-card__content">
+            <div class="service-detail-card__header">
+              <div class="service-detail-card__icon" aria-hidden="true">
+                @switch (item.icon) {
+                  @case ('map') {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+                      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+                      <line x1="9" y1="3" x2="9" y2="18"></line>
+                      <line x1="15" y1="6" x2="15" y2="21"></line>
+                    </svg>
+                  }
+                  @case ('suitcase') {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+                      <rect x="2" y="7" width="20" height="14" rx="3" ry="3"></rect>
+                      <path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"></path>
+                      <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                    </svg>
+                  }
+                  @case ('bed') {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+                      <path d="M2 4v16"></path>
+                      <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
+                      <path d="M2 17h20"></path>
+                      <path d="M6 8v4"></path>
+                    </svg>
+                  }
+                  @case ('binoculars') {
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
+                      <path d="M10 10h4"></path>
+                      <path d="M19 7l-2 11h-4l1-11"></path>
+                      <path d="M5 7l2 11h4l-1-11"></path>
+                      <circle cx="7" cy="6" r="3"></circle>
+                      <circle cx="17" cy="6" r="3"></circle>
+                    </svg>
+                  }
+                }
+              </div>
+              <div class="service-detail-card__titles">
+                <h3 class="service-detail-card__title">{{ item.title }}</h3>
+                <p class="service-detail-card__subtitle">{{ item.subtitle }}</p>
+              </div>
+            </div>
+
+            <p class="service-detail-card__desc">{{ item.description }}</p>
+
+            <div class="service-detail-card__features">
+              <h4 class="service-detail-card__features-title">HIGHLIGHTS:</h4>
+              <ul class="service-detail-card__features-list">
+                @for (feat of item.features; track feat) {
+                  <li>
+                    <span class="service-detail-card__bullet" aria-hidden="true">&#10003;</span>
+                    <span>{{ feat }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            <div class="service-detail-card__action">
+              <a
+                routerLink="/contact"
+                [queryParams]="{ service: item.id }"
+                class="service-detail-card__btn"
+              >
+                <span>Enquire About This Service</span>
+                <span class="service-detail-card__btn-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 3. Curated Travel Categories Section (Image-Led Discovery) -->
+<section
+  class="section travel-categories-section"
+  aria-labelledby="travel-categories-heading"
+>
+  <div class="container">
+    <!-- Centered Header -->
+    <div class="travel-categories__header reveal">
+      <div class="eyebrow eyebrow--center">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>FIND YOUR KIND OF JOURNEY</span>
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+      </div>
+      <h2 id="travel-categories-heading" class="travel-categories__heading">
+        Journeys made for the way you <span class="highlight-gold">travel.</span>
+      </h2>
+      <p class="travel-categories__lead">
+        Thoughtfully planned travel across India, shaped around who you travel with and what you love to discover.
+      </p>
+    </div>
+
+    <!-- 4 Image-Led Category Cards Grid -->
+    <div class="travel-categories__grid reveal-stagger-directional">
+      @for (cat of travelCategories; track cat.id) {
+        <article class="travel-category-card">
+          <!-- Top: Large Prominent Image (55-60% of card) -->
+          <div class="travel-category-card__media">
+            <img
+              [src]="cat.image"
+              [alt]="cat.alt"
+              class="travel-category-card__img"
+              width="360"
+              height="240"
+              loading="lazy"
+            />
+            <span class="travel-category-card__badge" aria-hidden="true">{{ cat.number }}</span>
+          </div>
+
+          <!-- Bottom: Clean White Content Area -->
+          <div class="travel-category-card__content">
+            <div class="travel-category-card__header">
+              <span class="travel-category-card__eyebrow">CATEGORY {{ cat.number }}</span>
+              <h3 class="travel-category-card__title">{{ cat.title }}</h3>
+            </div>
+
+            <p class="travel-category-card__desc">{{ cat.description }}</p>
+
+            <div class="travel-category-card__destinations">
+              <span class="travel-category-card__dest-label">SUGGESTED DESTINATIONS</span>
+              <span class="travel-category-card__dest-val">{{ cat.destinations }}</span>
+            </div>
+
+            <div class="travel-category-card__action">
+              <a
+                routerLink="/contact"
+                [queryParams]="{ package: cat.packageParam }"
+                class="travel-category-card__btn"
+              >
+                <span>Enquire for Details</span>
+                <span class="travel-category-card__btn-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 4. Services CTA Banner (Travel-Focused Landscape Composition) -->
+<section class="section section--surface services-cta-section" aria-labelledby="services-cta-heading">
+  <div class="container">
+    <div class="services-cta" aria-labelledby="services-cta-heading">
+      <!-- Background Scenic Landscape -->
+      <div class="services-cta__backdrop" aria-hidden="true">
+        <img
+          src="images/wayora-cta-landscape.jpg"
+          alt=""
+          class="services-cta__bg-img"
+          loading="lazy"
+          width="1600"
+          height="1067"
+        />
+        <div class="services-cta__overlay"></div>
+      </div>
+
+      <!-- Centered Enquiry-Focused Content -->
+      <div class="services-cta__content reveal">
+        <div class="services-cta__eyebrow">
+          <span class="services-cta__eyebrow-accent" aria-hidden="true"></span>
+          <span>START YOUR CONVERSATION</span>
+        </div>
+
+        <h2 id="services-cta-heading" class="services-cta__heading">
+          Have a custom trip <span class="services-cta__highlight">in mind?</span>
+        </h2>
+
+        <p class="services-cta__lead">
+          Tell us your travel dates, group size, and interests. Our travel specialists will design an
+          itinerary tailored precisely to you.
+        </p>
+
+        <div class="services-cta__actions">
+          <a
+            routerLink="/contact"
+            class="services-cta__btn services-cta__btn--primary"
+            aria-label="Plan Your Journey Today"
+          >
+            <span>Plan Your Journey Today</span>
+            <span class="services-cta__btn-icon" aria-hidden="true">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

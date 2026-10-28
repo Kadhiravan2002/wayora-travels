@@ -35,7 +35,7 @@ describe('PackagesComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const lead = compiled.querySelector('.packages__lead');
     expect(lead?.textContent).toContain(
-      "Thoughtfully planned escapes to help you experience India's most beautiful places."
+      "Thoughtfully planned escapes to help you experience India's most beautiful places.",
     );
   });
 

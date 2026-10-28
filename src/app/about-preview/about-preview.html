@@ -1,0 +1,129 @@
+<section class="section section--surface about-intro" aria-labelledby="about-preview-heading">
+  <div class="container about-intro__container">
+    <!-- Left Column: Layered Imagery -->
+    <div class="about-intro__visual reveal-left">
+      <div class="about-intro__main-frame">
+        <img
+          src="images/about-india-travel.jpg"
+          alt="Tranquil heritage architecture and calm waters in India"
+          class="about-intro__main-img"
+          width="560"
+          height="480"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Overlapping Circular Traveler Photo (TripX Reference) -->
+      <div class="about-intro__circle-frame">
+        <img
+          src="images/testimonials/travelers-left.jpg"
+          alt="Travelers exploring Indian heritage together"
+          class="about-intro__circle-img"
+          width="180"
+          height="180"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Restrained Decorative Travel Compass Motif -->
+      <div class="about-intro__motif" aria-hidden="true">
+        <svg viewBox="0 0 48 48" class="about-intro__motif-icon">
+          <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"></circle>
+          <polygon points="24,9 28,24 24,21 20,24" fill="var(--color-antique-gold)"></polygon>
+          <polygon points="24,39 28,24 24,27 20,24" fill="rgba(214, 168, 79, 0.4)"></polygon>
+          <circle cx="24" cy="24" r="3" fill="var(--color-royal-indigo)"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Right Column: Content & Elevated Benefits Card -->
+    <div class="about-intro__content reveal-right">
+      <div class="eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>WHO WE ARE</span>
+      </div>
+      <h2 id="about-preview-heading" class="about-intro__heading">
+        Discover India <span class="highlight-gold">your way.</span>
+      </h2>
+      <p class="about-intro__lead">
+        WAYORA Travels was founded with a singular purpose: to make Indian exploration immersive,
+        personalized, and effortless. We believe travel should celebrate the vibrant heritage,
+        tranquil retreats, and living traditions that make every corner of this country unique.
+      </p>
+
+      <!-- Elevated White Benefits Card (TripX Reference) -->
+      <div class="about-intro__benefits-card">
+        <div class="about-intro__benefit-media">
+          <img
+            src="images/services-travel-planning.jpg"
+            alt="Travelers planning a personalized itinerary"
+            class="about-intro__benefit-img"
+            width="200"
+            height="160"
+            loading="lazy"
+          />
+        </div>
+        <ul class="about-intro__benefit-list" aria-label="Key Travel Benefits">
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Personalized Itineraries</span>
+          </li>
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Handpicked Accommodations</span>
+          </li>
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Attentive Local Guidance</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Action Row: Primary Button & Call Us Action -->
+      <div class="about-intro__actions">
+        <a routerLink="/contact" class="about-intro__btn about-intro__btn-primary" aria-label="Plan Your Trip">
+          <span>Plan Your Trip</span>
+          <span class="about-intro__btn-icon" aria-hidden="true">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <a
+          [href]="contact.phoneHref"
+          class="about-intro__contact-pill about-intro__call-cta"
+          aria-label="Call Us"
+        >
+          <span class="about-intro__call-icon" aria-hidden="true">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+          </span>
+          <span class="about-intro__call-text">Call Us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -33,7 +33,7 @@ describe('WhyChooseComponent', () => {
     const lead = compiled.querySelector('.why-choose__lead');
 
     expect(lead?.textContent?.trim()).toBe(
-      'Every journey should feel effortless. We help you find experiences that match your interests, pace and travel style.'
+      'Every journey should feel effortless. We help you find experiences that match your interests, pace and travel style.',
     );
   });
 

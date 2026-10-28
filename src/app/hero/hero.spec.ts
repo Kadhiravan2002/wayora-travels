@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { HeroComponent } from './hero';
 
 describe('HeroComponent', () => {
@@ -8,6 +9,7 @@ describe('HeroComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeroComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroComponent);
@@ -22,49 +24,50 @@ describe('HeroComponent', () => {
   it('should render the exact eyebrow copy', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const eyebrow = compiled.querySelector('.hero__eyebrow');
-    expect(eyebrow?.textContent).toContain('YOUR JOURNEY STARTS HERE');
+    expect(eyebrow?.textContent).toContain('DISCOVER INDIA WITH WAYORA');
   });
 
-  it('should render the exact main heading', () => {
+  it('should render the exact main heading with Antique Gold highlight', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const heading = compiled.querySelector('.hero__heading');
     expect(heading?.textContent?.trim()).toBe('Find your kind of somewhere.');
+
+    const highlight = heading?.querySelector('.hero__heading-highlight');
+    expect(highlight?.textContent?.trim()).toBe('somewhere.');
   });
 
   it('should render the exact supporting text', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const description = compiled.querySelector('.hero__description');
     expect(description?.textContent).toContain(
-      'From misty mountains to peaceful backwaters, discover India your way with thoughtfully planned journeys made around you.'
+      'From peaceful backwaters and golden deserts to mountain escapes and coastal retreats, discover India your way with thoughtfully planned journeys.',
     );
   });
 
-  it('should render primary and secondary CTAs with correct labels and links', () => {
+  it('should render primary CTA linking to #featured-destinations and secondary CTA linking to contact', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const primaryCta = compiled.querySelector('.btn--primary');
-    const secondaryCta = compiled.querySelector('.btn--secondary');
+    const primaryCta = compiled.querySelector('.hero__btn-primary');
+    const secondaryCta = compiled.querySelector('.hero__btn-secondary');
 
-    expect(primaryCta?.textContent?.trim()).toBe('Explore Packages');
-    expect(primaryCta?.getAttribute('href')).toBe('#packages');
+    expect(primaryCta?.textContent?.trim()).toBe('Explore Destinations');
+    expect(primaryCta?.getAttribute('href')).toBe('#featured-destinations');
+    expect(primaryCta?.querySelector('.hero__btn-icon')).toBeTruthy();
 
     expect(secondaryCta?.textContent?.trim()).toBe('Plan Your Trip');
-    expect(secondaryCta?.getAttribute('href')).toBe('#contact');
   });
 
-  it('should render the image location badge as Kerala Backwaters', () => {
+  it('should render the background image with correct path and attributes', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const caption = compiled.querySelector('.hero__caption');
-    expect(caption?.textContent?.trim()).toBe('Kerala Backwaters');
+    const img = compiled.querySelector('.hero__bg-img') as HTMLImageElement;
+    expect(img).toBeTruthy();
+    expect(img.getAttribute('src')).toBe('images/wayora-hero-india.jpg');
+    expect(img.getAttribute('fetchpriority')).toBe('high');
   });
 
-  it('should render the landscape image with accurate alt text and source', () => {
+  it('should not render right-side floating cards', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const image = compiled.querySelector('.hero__image') as HTMLImageElement;
-
-    expect(image).toBeTruthy();
-    expect(image.getAttribute('src')).toBe('images/kerala-tea-plantations.jpg');
-    expect(image.getAttribute('alt')).toBe(
-      'Scenic tropical backwaters and lush greenery of Kerala'
-    );
+    expect(compiled.querySelector('.hero__visual-stack')).toBeNull();
+    expect(compiled.querySelector('.hero__badge')).toBeNull();
+    expect(compiled.querySelector('.hero__card')).toBeNull();
   });
 });

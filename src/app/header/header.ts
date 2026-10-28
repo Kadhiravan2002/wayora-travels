@@ -1,13 +1,14 @@
 import { Component, HostListener, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
-interface NavLink {
+export interface NavLink {
   label: string;
-  href: string;
+  path: string;
 }
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -15,11 +16,10 @@ export class HeaderComponent {
   readonly isMobileMenuOpen = signal(false);
 
   readonly navLinks: NavLink[] = [
-    { label: 'Destinations', href: '#destinations' },
-    { label: 'Packages', href: '#packages' },
-    { label: 'Experiences', href: '#experiences' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Contact', path: '/contact' },
   ];
 
   toggleMobileMenu(): void {

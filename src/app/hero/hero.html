@@ -1,46 +1,74 @@
 <section class="hero" aria-labelledby="hero-heading">
+  <!-- Background Scenic Photograph -->
+  <div class="hero__backdrop" aria-hidden="true">
+    <img
+      src="images/wayora-hero-india.jpg"
+      alt=""
+      class="hero__bg-img"
+      fetchpriority="high"
+      loading="eager"
+      width="1920"
+      height="1080"
+    />
+    <div class="hero__overlay"></div>
+  </div>
+
   <div class="container hero__container">
-    <!-- Left Column: Copy & CTAs -->
     <div class="hero__content">
       <div class="hero__eyebrow">
-        <span class="hero__eyebrow-accent" aria-hidden="true"></span>
-        <span>YOUR JOURNEY STARTS HERE</span>
+        <span class="hero__eyebrow-icon" aria-hidden="true">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </span>
+        <span>DISCOVER INDIA WITH WAYORA</span>
       </div>
 
       <h1 id="hero-heading" class="hero__heading">
-        Find your kind of somewhere.
+        Find your kind of <span class="hero__heading-highlight">somewhere.</span>
       </h1>
 
       <p class="hero__description">
-        From misty mountains to peaceful backwaters, discover India your way with thoughtfully planned journeys made around you.
+        From peaceful backwaters and golden deserts to mountain escapes and coastal retreats,
+        discover India your way with thoughtfully planned journeys.
       </p>
 
       <div class="hero__actions">
-        <a href="#packages" class="btn btn--primary hero__btn">
-          Explore Packages
+        <a
+          href="#featured-destinations"
+          class="hero__btn-primary"
+          aria-label="Explore Destinations"
+        >
+          <span>Explore Destinations</span>
+          <span class="hero__btn-icon" aria-hidden="true">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
         </a>
-        <a href="#contact" class="btn btn--secondary hero__btn">
+        <a routerLink="/contact" class="hero__btn-secondary">
           Plan Your Trip
         </a>
-      </div>
-    </div>
-
-    <!-- Right Column: Visual Imagery -->
-    <div class="hero__visual">
-      <div class="hero__image-frame">
-        <img
-          src="images/kerala-tea-plantations.jpg"
-          alt="Scenic tropical backwaters and lush greenery of Kerala"
-          class="hero__image"
-          width="1200"
-          height="825"
-          fetchpriority="high"
-          loading="eager"
-        />
-        <div class="hero__caption" aria-hidden="true">
-          <span class="hero__caption-dot"></span>
-          <span>Kerala Backwaters</span>
-        </div>
       </div>
     </div>
   </div>

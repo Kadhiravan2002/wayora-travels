@@ -1,25 +1,31 @@
-<section id="destinations" class="section section--destinations" aria-labelledby="destinations-heading">
+<section
+  id="featured-destinations"
+  class="section section--surface destinations"
+  aria-labelledby="destinations-heading"
+>
+  <span id="destinations" class="visually-hidden"></span>
   <div class="container">
     <!-- Section Header -->
-    <div class="destinations__header">
-      <div class="destinations__eyebrow">
-        <span class="destinations__eyebrow-accent" aria-hidden="true"></span>
-        <span>EXPLORE INDIA</span>
+    <div class="destinations__header reveal">
+      <div class="eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>FEATURED DESTINATIONS</span>
       </div>
 
       <h2 id="destinations-heading" class="destinations__heading">
-        Find your next escape.
+        Featured <span class="highlight-gold">Destinations</span>
       </h2>
 
       <p class="destinations__lead">
-        From tranquil backwaters to royal cities and mountain retreats, discover a destination that feels like you.
+        Immerse yourself in authentic Indian destinations — from serene waterways and royal forts to
+        pristine peaks and golden shores.
       </p>
     </div>
 
     <!-- 4-Card Responsive Grid -->
-    <div class="destinations__grid">
+    <div class="destinations__grid reveal-stagger-directional">
       @for (dest of destinations; track dest.id) {
-        <app-destination-card [destination]="dest"></app-destination-card>
+        <app-destination-card [id]="dest.id" [destination]="dest"></app-destination-card>
       }
     </div>
   </div>

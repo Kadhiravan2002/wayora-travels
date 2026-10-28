@@ -1,0 +1,497 @@
+<!-- 1. Page Banner -->
+<section class="page-banner-section">
+  <div class="container">
+    <div class="page-banner about-hero-banner" aria-labelledby="about-banner-title">
+      <div class="page-banner__backdrop" aria-hidden="true">
+        <img src="images/about-india-travel.jpg" alt="" class="page-banner__bg" loading="eager" />
+        <div class="page-banner__overlay"></div>
+      </div>
+      <div class="page-banner__content">
+        <div class="page-banner__eyebrow">
+          <span class="eyebrow-accent" aria-hidden="true"></span>
+          <span>ABOUT OUR BRAND</span>
+        </div>
+        <h1 id="about-banner-title" class="page-banner__title">About WAYORA Travels</h1>
+        <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
+          <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
+          <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
+          <span class="page-banner__breadcrumb-current">About</span>
+        </nav>
+        <p class="page-banner__subtitle">
+          A modern Indian travel company helping travelers discover the diverse wonders of India through
+          personalized, thoughtfully planned journeys.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Company Introduction (TripX Reference Inspiration) -->
+<section class="section section--surface about-intro" aria-labelledby="about-intro-heading">
+  <div class="container about-intro__container">
+    <!-- Left Column: Layered Imagery -->
+    <div class="about-intro__visual reveal-left">
+      <div class="about-intro__main-frame">
+        <img
+          src="images/about-india-travel.jpg"
+          alt="Tranquil heritage architecture and calm waters in India"
+          class="about-intro__main-img"
+          width="560"
+          height="480"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Overlapping Circular Traveler Photo (TripX Reference) -->
+      <div class="about-intro__circle-frame">
+        <img
+          src="images/testimonials/travelers-left.jpg"
+          alt="Travelers exploring Indian heritage together"
+          class="about-intro__circle-img"
+          width="180"
+          height="180"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Restrained Decorative Travel Compass Motif -->
+      <div class="about-intro__motif" aria-hidden="true">
+        <svg viewBox="0 0 48 48" class="about-intro__motif-icon">
+          <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"></circle>
+          <polygon points="24,9 28,24 24,21 20,24" fill="var(--color-antique-gold)"></polygon>
+          <polygon points="24,39 28,24 24,27 20,24" fill="rgba(214, 168, 79, 0.4)"></polygon>
+          <circle cx="24" cy="24" r="3" fill="var(--color-royal-indigo)"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Right Column: Content & Elevated Benefits Card -->
+    <div class="about-intro__content reveal-right">
+      <div class="eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>WHO WE ARE</span>
+      </div>
+      <h2 id="about-intro-heading" class="about-intro__heading">
+        Discover India <span class="highlight-gold">your way.</span>
+      </h2>
+      <p class="about-intro__lead">
+        WAYORA Travels was founded with a singular purpose: to make Indian exploration immersive,
+        personalized, and effortless. We believe travel should celebrate the vibrant heritage,
+        tranquil retreats, and living traditions that make every corner of this country unique.
+      </p>
+
+      <!-- Elevated White Benefits Card (TripX Reference) -->
+      <div class="about-intro__benefits-card">
+        <div class="about-intro__benefit-media">
+          <img
+            src="images/services-travel-planning.jpg"
+            alt="Travelers planning a personalized itinerary"
+            class="about-intro__benefit-img"
+            width="200"
+            height="160"
+            loading="lazy"
+          />
+        </div>
+        <ul class="about-intro__benefit-list" aria-label="Key Travel Benefits">
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Personalized Itineraries</span>
+          </li>
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Handpicked Accommodations</span>
+          </li>
+          <li class="about-intro__benefit-item">
+            <span class="about-intro__bullet" aria-hidden="true">»</span>
+            <span>Attentive Local Guidance</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Action Row: Primary Button & Call Us Action -->
+      <div class="about-intro__actions">
+        <a routerLink="/contact" class="about-intro__btn about-intro__btn-primary" aria-label="Plan Your Trip">
+          <span>Plan Your Trip</span>
+          <span class="about-intro__btn-icon" aria-hidden="true">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <a
+          [href]="contact.phoneHref"
+          class="about-intro__contact-pill about-intro__call-cta"
+          aria-label="Call Us"
+        >
+          <span class="about-intro__call-icon" aria-hidden="true">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+          </span>
+          <span class="about-intro__call-text">Call Us</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Company Approach (Vision & Mission Inspired Split Layout) -->
+<section class="section section--ivory about-approach" aria-labelledby="approach-heading">
+  <div class="container about-approach__container">
+    <!-- Left Column: Philosophy Overview & Numbered Highlights -->
+    <div class="about-approach__overview reveal-left">
+      <div class="about-approach__eyebrow">
+        <span class="about-approach__eyebrow-accent" aria-hidden="true"></span>
+        <span>OUR PHILOSOPHY</span>
+      </div>
+      <h2 id="approach-heading" class="about-approach__heading">
+        Our Approach to <span class="highlight-gold">Travel</span>
+      </h2>
+      <p class="about-approach__lead">
+        We prioritize thoughtful pacing, verified hospitality, and attentive support over rushed
+        checklists.
+      </p>
+
+      <!-- Bottom Row: 3 Compact Numbered Highlights -->
+      <div class="about-approach__highlights" aria-label="Key Philosophy Highlights">
+        <div class="about-approach__highlight">
+          <span class="about-approach__highlight-num">01</span>
+          <span class="about-approach__highlight-label">Curated with Intention</span>
+        </div>
+        <div class="about-approach__highlight">
+          <span class="about-approach__highlight-num">02</span>
+          <span class="about-approach__highlight-label">Our Travel Partners</span>
+        </div>
+        <div class="about-approach__highlight">
+          <span class="about-approach__highlight-num">03</span>
+          <span class="about-approach__highlight-label">Transparent Guidance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Generous White Rounded Panel -->
+    <div class="about-approach__panel reveal-right">
+      <div class="about-approach__items">
+        <article class="approach-item approach-card">
+          <div class="approach-item__header">
+            <span class="approach-item__badge">01</span>
+            <h3 class="approach-item__title">Curated with Intention</h3>
+          </div>
+          <p class="approach-item__desc">
+            Every journey is shaped by a deep understanding of destination timing, regional distances,
+            and cultural nuances to ensure your trip feels relaxed and fulfilling.
+          </p>
+        </article>
+
+        <div class="approach-item__divider" aria-hidden="true"></div>
+
+        <article class="approach-item approach-card">
+          <div class="approach-item__header">
+            <span class="approach-item__badge">02</span>
+            <h3 class="approach-item__title">Our Travel Partners</h3>
+          </div>
+          <p class="approach-item__desc">
+            We collaborate with authentic boutique stays, heritage properties, and trusted local
+            guides who provide warm, respectful hospitality.
+          </p>
+        </article>
+
+        <div class="approach-item__divider" aria-hidden="true"></div>
+
+        <article class="approach-item approach-card">
+          <div class="approach-item__header">
+            <span class="approach-item__badge">03</span>
+            <h3 class="approach-item__title">Transparent Guidance</h3>
+          </div>
+          <p class="approach-item__desc">
+            Clear recommendations, realistic pacing, and honest advice. We help you choose the right
+            destinations for your preferred season and travel style.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Client Testimonials (Inspired by TripX Reference, Tailored to WAYORA Brand) -->
+<section class="section about-testimonials" aria-labelledby="testimonials-heading">
+  <img
+    src="images/wayora-cta-landscape.jpg"
+    alt=""
+    class="about-testimonials__bg"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <div class="about-testimonials__overlay" aria-hidden="true"></div>
+
+  <div class="container about-testimonials__container">
+    <!-- Header row: Eyebrow, Heading, and Demo Travelers Cluster -->
+    <div class="about-testimonials__top reveal">
+      <div class="about-testimonials__headings">
+        <div class="about-testimonials__eyebrow">
+          <svg
+            class="about-testimonials__eyebrow-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>TRAVELER STORIES</span>
+        </div>
+        <h2 id="testimonials-heading" class="about-testimonials__heading">
+          Journeys worth <span class="highlight-gold">remembering.</span>
+        </h2>
+      </div>
+
+      <!-- Balanced cluster: circular traveler avatars + label -->
+      <div class="about-testimonials__trust-cluster">
+        <div class="about-testimonials__avatars" aria-hidden="true">
+          <img
+            src="images/testimonials/traveler-avatar-2.jpg"
+            alt=""
+            class="avatar-circle"
+            width="42"
+            height="42"
+          />
+          <img
+            src="images/testimonials/traveler-avatar-3.jpg"
+            alt=""
+            class="avatar-circle"
+            width="42"
+            height="42"
+          />
+          <img
+            src="images/testimonials/traveler-avatar-4.jpg"
+            alt=""
+            class="avatar-circle"
+            width="42"
+            height="42"
+          />
+          <div class="avatar-circle avatar-circle--plus">+</div>
+        </div>
+        <div class="about-testimonials__trust-info">
+          <span class="trust-info__title">Travel Stories</span>
+          <span class="trust-info__sub">Guest Highlights Across India</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center 3-column composition: Left Image, Central Testimonial Card, Right Image -->
+    <div class="about-testimonials__showcase reveal">
+      <!-- Left Supporting Traveler Image -->
+      <div class="about-testimonials__side-media about-testimonials__side-media--left">
+        <img
+          src="images/testimonials/travelers-left.jpg"
+          alt="Happy travelers exploring scenic India together"
+          class="about-testimonials__side-img"
+          width="320"
+          height="420"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Central Prominent Testimonial Card with Accessible Slider -->
+      <div
+        class="testimonials-card"
+        (mouseenter)="pauseSlider()"
+        (mouseleave)="resumeSlider()"
+        (focusin)="pauseSlider()"
+        (focusout)="resumeSlider()"
+        aria-roledescription="carousel"
+        aria-label="Traveler stories carousel"
+      >
+        <div class="testimonials-card__stars" aria-label="5 out of 5 stars">
+          <span aria-hidden="true">&#9733;</span>
+          <span aria-hidden="true">&#9733;</span>
+          <span aria-hidden="true">&#9733;</span>
+          <span aria-hidden="true">&#9733;</span>
+          <span aria-hidden="true">&#9733;</span>
+        </div>
+
+        <div class="testimonials-card__slide" [attr.aria-live]="isPaused() ? 'polite' : 'off'">
+          <blockquote class="testimonials-card__quote">
+            &ldquo;{{ currentTestimonial().quote }}&rdquo;
+          </blockquote>
+
+          <div class="testimonials-card__footer">
+            <div class="testimonials-card__profile">
+              <img
+                [src]="currentTestimonial().avatar"
+                [alt]="currentTestimonial().name"
+                class="testimonials-card__avatar"
+                width="52"
+                height="52"
+                loading="lazy"
+              />
+              <div class="testimonials-card__meta">
+                <span class="testimonials-card__name">{{ currentTestimonial().name }}</span>
+                <span class="testimonials-card__role">{{ currentTestimonial().role }}</span>
+              </div>
+            </div>
+            <div class="testimonials-card__quote-mark" aria-hidden="true">&rdquo;</div>
+          </div>
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <div class="testimonials-card__controls">
+          <div
+            class="testimonials-slider__dots"
+            role="tablist"
+            aria-label="Traveler stories slide selector"
+          >
+            @for (item of testimonials; track item.id; let idx = $index) {
+              <button
+                type="button"
+                role="tab"
+                class="testimonials-slider__dot"
+                [class.testimonials-slider__dot--active]="idx === activeIndex()"
+                [attr.aria-selected]="idx === activeIndex()"
+                [attr.aria-label]="'Go to story ' + (idx + 1) + ' of ' + testimonials.length + ': ' + item.name"
+                (click)="goToSlide(idx)"
+              ></button>
+            }
+          </div>
+
+          <div class="testimonials-slider__arrows">
+            <button
+              type="button"
+              class="testimonials-slider__arrow"
+              (click)="prevSlide()"
+              aria-label="Previous traveler story"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="testimonials-slider__arrow"
+              (click)="nextSlide()"
+              aria-label="Next traveler story"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Supporting Traveler Image -->
+      <div class="about-testimonials__side-media about-testimonials__side-media--right">
+        <img
+          src="images/testimonials/travelers-right.jpg"
+          alt="Family walking together by the peaceful coastal sunset"
+          class="about-testimonials__side-img"
+          width="320"
+          height="420"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Bottom CTA (TripX Inspired Visual Travel Banner) -->
+<section class="section about-cta-section" aria-labelledby="about-cta-heading">
+  <div class="container">
+    <div class="about-cta">
+      <!-- Background Scenic Landscape -->
+      <div class="about-cta__backdrop" aria-hidden="true">
+        <img
+          src="images/footer-india-landscape.jpg"
+          alt=""
+          class="about-cta__bg-img"
+          loading="lazy"
+          width="1600"
+          height="700"
+        />
+        <div class="about-cta__overlay"></div>
+      </div>
+
+      <!-- Left Traveler Cutout -->
+      <div class="about-cta__traveler about-cta__traveler--left" aria-hidden="true">
+        <img
+          src="images/cta-travelers-left.png"
+          alt=""
+          class="about-cta__traveler-img"
+          loading="lazy"
+          width="320"
+          height="450"
+        />
+      </div>
+
+      <!-- Centered Content -->
+      <div class="about-cta__content reveal">
+        <h2 id="about-cta-heading" class="about-cta__heading">
+          Ready to plan your <span class="highlight-gold">Indian journey?</span>
+        </h2>
+        <p class="about-cta__text">
+          Speak with our travel specialists today and receive a tailored itinerary crafted for you.
+        </p>
+        <div class="about-cta__actions">
+          <a routerLink="/contact" class="about-cta__btn-primary">
+            <span>Get in Touch</span>
+            <span class="about-cta__btn-icon" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Traveler Cutout -->
+      <div class="about-cta__traveler about-cta__traveler--right" aria-hidden="true">
+        <img
+          src="images/cta-travelers-right.png"
+          alt=""
+          class="about-cta__traveler-img"
+          loading="lazy"
+          width="320"
+          height="450"
+        />
+      </div>
+    </div>
+  </div>
+</section>

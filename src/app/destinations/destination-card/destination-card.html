@@ -1,23 +1,51 @@
 <article class="card">
-  <a [href]="destination().link" class="card__link" [attr.aria-label]="'Explore ' + destination().name + ' - ' + destination().category">
-    <div class="card__media">
-      <img
-        [src]="destination().image"
-        [alt]="destination().alt"
-        class="card__img"
-        width="600"
-        height="450"
-        loading="lazy"
-      />
-    </div>
-    <div class="card__body">
-      <div class="card__header">
-        <h3 class="card__title">{{ destination().name }}</h3>
-        <p class="card__category">{{ destination().category }}</p>
+  <a
+    [routerLink]="['/contact']"
+    [queryParams]="{ destination: destination().id }"
+    class="card__link"
+    [attr.aria-label]="'Explore ' + destination().name + ' - ' + destination().category"
+  >
+    <!-- Arched Media Wrapper with Overlapping Center Arrow -->
+    <div class="card__media-wrap">
+      <div class="card__img-container">
+        <img
+          [src]="destination().image"
+          [alt]="destination().alt"
+          class="card__img"
+          width="600"
+          height="450"
+          loading="lazy"
+        />
       </div>
-      <div class="card__action" aria-hidden="true">
-        <span>Explore destination</span>
-        <span class="card__arrow">→</span>
+
+      <!-- Overlapping Circular Action Arrow -->
+      <div class="card__action-btn" aria-hidden="true">
+        <div class="card__action-inner">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Card Body -->
+    <div class="card__body">
+      <h3 class="card__title">{{ destination().name }}</h3>
+      <p class="card__category">{{ destination().category }}</p>
+      <div class="card__motif" aria-hidden="true">
+        <span class="card__motif-dot"></span>
+        <span class="card__motif-icon">✦</span>
+        <span class="card__motif-dot"></span>
       </div>
     </div>
   </a>

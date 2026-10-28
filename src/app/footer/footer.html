@@ -1,0 +1,158 @@
+<footer class="footer" role="contentinfo">
+  <!-- Indian travel landscape photographic background & dark indigo overlay -->
+  <img
+    src="images/footer-india-landscape.jpg"
+    alt=""
+    class="footer__bg"
+    loading="lazy"
+    aria-hidden="true"
+  />
+  <div class="footer__overlay" aria-hidden="true"></div>
+
+  <div class="container footer__container">
+    <!-- Main 4-Column Footer Grid -->
+    <div class="footer__grid">
+      <!-- Col 1: Brand & Socials with Overlapping Logo Plate (TripX Reference) -->
+      <div class="footer__col footer__brand">
+        <div class="footer__brand-panel">
+          <p class="footer__desc">
+            A modern Indian travel company helping customers discover destinations across India with
+            thoughtfully planned journeys.
+          </p>
+          <div class="footer__socials" aria-label="Social media links">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Follow WAYORA Travels on Facebook"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Follow WAYORA Travels on Instagram"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Follow WAYORA Travels on X"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              aria-label="Follow WAYORA Travels on LinkedIn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"
+                ></path>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick Links -->
+      <div class="footer__col footer__links">
+        <h4 class="footer__heading">Quick Links</h4>
+        <ul class="footer__list">
+          <li><a routerLink="/" class="footer__link">Home</a></li>
+          <li><a routerLink="/about" class="footer__link">About</a></li>
+          <li><a routerLink="/services" class="footer__link">Services</a></li>
+          <li><a routerLink="/contact" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Destinations -->
+      <div class="footer__col footer__destinations">
+        <h4 class="footer__heading">Destinations</h4>
+        <ul class="footer__list">
+          <li><a routerLink="/" fragment="kerala" class="footer__dest-link">Kerala</a></li>
+          <li><a routerLink="/" fragment="rajasthan" class="footer__dest-link">Rajasthan</a></li>
+          <li><a routerLink="/" fragment="kashmir" class="footer__dest-link">Kashmir</a></li>
+          <li><a routerLink="/" fragment="goa" class="footer__dest-link">Goa</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Newsletter -->
+      <div class="footer__col footer__newsletter">
+        <h4 class="footer__heading">Newsletter</h4>
+        <p class="footer__newsletter-desc">
+          Subscribe to receive curated destination guides, seasonal itineraries, and travel inspiration across India.
+        </p>
+        <form
+          class="footer__newsletter-form"
+          (submit)="onNewsletterSubmit($event)"
+          aria-label="Newsletter subscription"
+        >
+          <div class="footer__input-wrap">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="footer__input"
+              aria-label="Email address for travel updates"
+              required
+            />
+            <button type="submit" class="footer__submit-btn" aria-label="Submit email address">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </div>
+          @if (newsletterFeedback()) {
+            <p class="footer__newsletter-feedback" role="status">{{ newsletterFeedback() }}</p>
+          }
+        </form>
+      </div>
+    </div>
+
+    <!-- 3. Bottom Copyright Strip -->
+    <div class="footer__bottom">
+      <p class="footer__copyright">&copy; {{ currentYear }} WAYORA Travels. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

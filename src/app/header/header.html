@@ -1,50 +1,104 @@
 <header class="header" role="banner">
-  <div class="container header-bar">
-    <a href="#" class="brand" (click)="closeMobileMenu()" aria-label="WAYORA Travels Homepage">
-      <span class="brand-name">WAYORA</span>
-      <span class="brand-sub">TRAVELS</span>
-    </a>
-
-    <nav class="nav-desktop" aria-label="Primary Navigation">
-      <ul class="nav-list">
-        @for (link of navLinks; track link.href) {
-          <li>
-            <a [href]="link.href" class="nav-link">{{ link.label }}</a>
-          </li>
-        }
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a href="#contact" class="btn btn--primary header-cta">Plan Your Trip</a>
-
-      <button
-        type="button"
-        class="menu-toggle"
-        [class.is-active]="isMobileMenuOpen()"
-        [attr.aria-expanded]="isMobileMenuOpen()"
-        aria-controls="mobile-nav"
-        aria-label="Toggle navigation menu"
-        (click)="toggleMobileMenu()"
+  <!-- Primary Navigation Bar (TripX-Inspired 3-Zone Clean Header) -->
+  <div class="main-bar">
+    <div class="container main-bar__container">
+      <!-- Left: Brand Logo -->
+      <a
+        routerLink="/"
+        class="brand"
+        (click)="closeMobileMenu()"
+        aria-label="WAYORA Travels - Return to Homepage"
       >
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
-      </button>
+        <img
+          src="images/wayora-logo.png"
+          alt="WAYORA Travels Logo - Circular travel motif and wordmark"
+          class="brand__logo"
+          width="180"
+          height="60"
+        />
+        <span class="brand-name visually-hidden">WAYORA</span>
+      </a>
+
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="nav-desktop" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          @for (link of navLinks; track link.path) {
+            <li>
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+                class="nav-link"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <!-- Right: Action CTA & Mobile Toggle -->
+      <div class="header-actions">
+        <a routerLink="/contact" class="header-cta" aria-label="Plan Your Trip">
+          <span class="header-cta__text">Plan Your Trip</span>
+          <span class="header-cta__icon" aria-hidden="true">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <button
+          type="button"
+          class="menu-toggle"
+          [class.is-active]="isMobileMenuOpen()"
+          [attr.aria-expanded]="isMobileMenuOpen()"
+          aria-controls="mobile-nav"
+          aria-label="Toggle navigation menu"
+          (click)="toggleMobileMenu()"
+        >
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </div>
 
+  <!-- Mobile Drawer Backdrop -->
   @if (isMobileMenuOpen()) {
-    <div class="backdrop" (click)="closeMobileMenu()" aria-hidden="true"></div>
+    <div class="header-backdrop backdrop" (click)="closeMobileMenu()" aria-hidden="true"></div>
   }
 
-  <div id="mobile-nav" class="mobile-drawer" [class.is-open]="isMobileMenuOpen()" [attr.aria-hidden]="!isMobileMenuOpen()">
+  <!-- Accessible Mobile Drawer -->
+  <div
+    id="mobile-nav"
+    class="mobile-drawer"
+    [class.is-open]="isMobileMenuOpen()"
+    [attr.aria-hidden]="!isMobileMenuOpen()"
+  >
     <div class="container mobile-body">
       <nav aria-label="Mobile Navigation">
         <ul class="mobile-list">
-          @for (link of navLinks; track link.href) {
+          @for (link of navLinks; track link.path) {
             <li class="mobile-item">
-              <a [href]="link.href" class="mobile-link" (click)="closeMobileMenu()">
+              <a
+                [routerLink]="link.path"
+                routerLinkActive="is-active"
+                [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+                class="mobile-link"
+                (click)="closeMobileMenu()"
+              >
                 <span>{{ link.label }}</span>
                 <span class="arrow" aria-hidden="true">→</span>
               </a>
@@ -52,8 +106,23 @@
           }
         </ul>
       </nav>
-      <a href="#contact" class="btn btn--primary mobile-cta" (click)="closeMobileMenu()">
-        Plan Your Trip
+      <a routerLink="/contact" class="header-cta mobile-cta" (click)="closeMobileMenu()">
+        <span class="header-cta__text">Plan Your Trip</span>
+        <span class="header-cta__icon" aria-hidden="true">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
       </a>
     </div>
   </div>

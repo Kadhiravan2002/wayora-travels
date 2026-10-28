@@ -1,0 +1,228 @@
+:host {
+  display: block;
+}
+
+.cta-banner-section {
+  padding-top: clamp(1.5rem, 1rem + 1vw, 2.5rem);
+  padding-bottom: var(--section-padding-y);
+  background-color: var(--color-surface);
+}
+
+.cta-banner {
+  position: relative;
+  background-color: #121c34;
+  border-radius: 28px;
+  min-height: clamp(320px, 40vh, 390px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(40, 61, 115, 0.14);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: clamp(2.5rem, 5vw, 4rem) 1.5rem;
+  text-align: center;
+}
+
+.cta-banner__backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-banner__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  display: block;
+}
+
+.cta-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 28, 54, 0.72) 0%,
+    rgba(22, 35, 68, 0.84) 100%
+  );
+}
+
+.cta-banner__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-banner__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-eyebrow);
+  color: var(--color-antique-gold);
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.cta-banner__eyebrow-accent {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-antique-gold);
+  border-radius: var(--radius-full);
+}
+
+.cta-banner__heading {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.22;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.cta-banner__highlight {
+  color: var(--color-antique-gold);
+}
+
+.cta-banner__lead {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+}
+
+.cta-banner__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Shared Button Base — Matching Hero Button System */
+.cta-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  min-height: 46px;
+  box-sizing: border-box;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-ui);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast),
+    box-shadow var(--transition-base);
+}
+
+/* Primary CTA Pill Button (Antique Gold with Circular Arrow Icon) */
+.cta-banner__btn--primary {
+  gap: 14px;
+  background-color: var(--color-antique-gold);
+  color: #141f3c;
+  padding: 6px 7px 6px 24px;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 16px rgba(214, 168, 79, 0.35);
+}
+
+.cta-banner__btn--primary:hover {
+  background-color: #dfb563;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(214, 168, 79, 0.45);
+}
+
+.cta-banner__btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  color: #141f3c;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.cta-banner__btn--primary:hover .cta-banner__btn-icon {
+  transform: translate(1px, -1px);
+}
+
+/* Secondary CTA Button (Transparent Pill with Thin White Outline) */
+.cta-banner__btn--secondary {
+  padding: 0 24px;
+  background: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+
+.cta-banner__btn--secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.cta-banner__btn:focus-visible {
+  outline: 3px solid var(--color-antique-gold);
+  outline-offset: 3px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .cta-banner {
+    border-radius: 20px;
+    min-height: auto;
+    padding: clamp(2.5rem, 6vh, 3.5rem) 1.25rem;
+  }
+
+  .cta-banner__backdrop {
+    border-radius: 20px;
+  }
+
+  .cta-banner__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-banner__btn--primary {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cta-banner__btn--secondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-banner__btn--primary,
+  .cta-banner__btn--secondary,
+  .cta-banner__btn-icon {
+    transition: none !important;
+  }
+}

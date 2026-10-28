@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../hero/hero';
+import { AboutPreviewComponent } from '../about-preview/about-preview';
+import { ServicesOverviewComponent } from '../services-overview/services-overview';
 import { DestinationsComponent } from '../destinations/destinations';
-import { PackagesComponent } from '../packages/packages';
-import { WhyChooseComponent } from '../why-choose/why-choose';
+import { CtaBannerComponent } from '../cta-banner/cta-banner';
 
 @Component({
   selector: 'app-home',
   imports: [
     HeroComponent,
+    AboutPreviewComponent,
+    ServicesOverviewComponent,
     DestinationsComponent,
-    PackagesComponent,
-    WhyChooseComponent,
+    CtaBannerComponent,
   ],
   templateUrl: './home.html',
   styles: `
@@ -21,4 +23,3 @@ import { WhyChooseComponent } from '../why-choose/why-choose';
   `,
 })
 export class HomeComponent {}
-
