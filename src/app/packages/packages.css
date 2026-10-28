@@ -5,7 +5,7 @@
 .section--packages {
   background-color: var(--color-background);
   border-top: 1px solid var(--color-border);
-  padding-top: var(--section-padding-compact-y);
+  padding-top: var(--section-padding-y);
   padding-bottom: var(--section-padding-y);
 }
 .packages__header {
@@ -16,19 +16,19 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  font-family: var(--font-family-body);
-  font-size: 0.8125rem;
+  font-family: var(--font-family-ui);
+  font-size: var(--font-size-caption);
   font-weight: var(--font-weight-bold);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--letter-spacing-eyebrow);
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-royal-indigo);
   margin-bottom: var(--space-sm);
 }
 .packages__eyebrow-accent {
   display: inline-block;
-  width: 24px;
+  width: 20px;
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--color-antique-gold);
   border-radius: var(--radius-full);
 }
 .packages__heading {

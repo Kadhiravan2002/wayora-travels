@@ -109,8 +109,8 @@
 .hero__btn-secondary {
   display: inline-flex;
   align-items: center;
-  height: 46px;
-  min-height: 46px;
+  height: var(--btn-min-height);
+  min-height: var(--btn-min-height);
   box-sizing: border-box;
   border-radius: var(--radius-full);
   font-family: var(--font-family-ui);
@@ -196,6 +196,7 @@
   }
 }
 
+/* Tablet & Mobile shared viewport sizing */
 @media (max-width: 991px) {
   .hero {
     min-height: auto;
@@ -205,6 +206,14 @@
 
   .hero__content {
     max-width: 580px;
+    margin: 0;
+  }
+}
+
+/* Mobile Layout (<= 767px) — Centered layout with stacked actions */
+@media (max-width: 767px) {
+  .hero__content {
+    max-width: 100%;
     margin: 0 auto;
     text-align: center;
   }
@@ -226,22 +235,11 @@
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-    gap: 14px;
+    gap: 12px;
   }
 
   .hero__btn-primary,
   .hero__btn-secondary {
     width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero__content {
-    max-width: 100%;
-  }
-
-  .hero__actions {
-    align-items: center;
-    gap: 12px;
   }
 }

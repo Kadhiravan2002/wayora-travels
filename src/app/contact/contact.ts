@@ -62,9 +62,10 @@ export class ContactComponent implements OnInit {
           custom: 'Solo & Custom Journeys',
         };
         const pkgName = packageMap[params['package']] || params['package'];
-        this.contactForm.patchValue({
-          message: `Enquiring about the ${pkgName} package. `,
-        });
+        const messageControl = this.contactForm.get('message');
+        if (!messageControl?.dirty && !messageControl?.value) {
+          messageControl?.setValue(`Enquiring about the ${pkgName} package.`);
+        }
       } else if (params['service']) {
         const serviceMap: Record<string, string> = {
           itinerary: 'Tour & Itinerary Planning',
@@ -73,9 +74,10 @@ export class ContactComponent implements OnInit {
           experiences: 'Local Experiences & Sightseeing',
         };
         const serviceName = serviceMap[params['service']] || params['service'];
-        this.contactForm.patchValue({
-          message: `Enquiring about: ${serviceName}. `,
-        });
+        const messageControl = this.contactForm.get('message');
+        if (!messageControl?.dirty && !messageControl?.value) {
+          messageControl?.setValue(`Enquiring about: ${serviceName}.`);
+        }
       }
     }
   }

@@ -99,4 +99,26 @@ describe('ServicesComponent', () => {
     expect(btn?.getAttribute('routerLink')).toBe('/contact');
     expect(btn?.querySelector('.services-cta__btn-icon')).toBeTruthy();
   });
+
+  it('should render standardized secondary buttons in service cards and travel-category cards', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const serviceBtns = compiled.querySelectorAll('.service-detail-card__btn');
+    expect(serviceBtns.length).toBe(4);
+    serviceBtns.forEach((btn) => {
+      expect(btn.classList.contains('btn')).toBe(true);
+      expect(btn.classList.contains('btn--secondary')).toBe(true);
+      expect(btn.textContent).toContain('Enquire About This Service');
+      expect(btn.querySelector('.service-detail-card__btn-arrow')).toBeTruthy();
+    });
+
+    const categoryBtns = compiled.querySelectorAll('.travel-category-card__btn');
+    expect(categoryBtns.length).toBe(4);
+    categoryBtns.forEach((btn) => {
+      expect(btn.classList.contains('btn')).toBe(true);
+      expect(btn.classList.contains('btn--secondary')).toBe(true);
+      expect(btn.textContent).toContain('Enquire for Details');
+      expect(btn.querySelector('.travel-category-card__btn-arrow')).toBeTruthy();
+    });
+  });
 });

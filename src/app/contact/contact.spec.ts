@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { provideRouter } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 import { ContactComponent } from './contact';
 
 describe('ContactComponent', () => {
@@ -90,5 +90,25 @@ describe('ContactComponent', () => {
 
     const submitBtn = compiled.querySelector('.contact-form__submit');
     expect(submitBtn?.textContent).toContain('Send Enquiry');
+  });
+
+  it('should prefill message for ?package=couple without overwriting edited content', () => {
+    // When package=couple is in query params
+    const route = TestBed.inject(ActivatedRoute);
+    (route.snapshot as unknown as { queryParams: Record<string, string> }).queryParams = {
+      package: 'couple',
+    };
+
+    component.ngOnInit();
+    expect(component.contactForm.get('message')?.value).toBe(
+      'Enquiring about the Couple Getaways package.',
+    );
+
+    // If message is dirty (user has edited), do not overwrite
+    component.contactForm.get('message')?.setValue('Custom user typed message');
+    component.contactForm.get('message')?.markAsDirty();
+
+    component.ngOnInit();
+    expect(component.contactForm.get('message')?.value).toBe('Custom user typed message');
   });
 });

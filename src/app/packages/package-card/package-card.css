@@ -10,7 +10,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(36, 61, 50, 0.04);
+  box-shadow: 0 2px 8px rgba(40, 61, 115, 0.05);
   transition:
     transform var(--transition-base),
     box-shadow var(--transition-base),
@@ -18,8 +18,8 @@
 }
 .package-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(36, 61, 50, 0.08);
-  border-color: var(--color-sand);
+  box-shadow: 0 14px 28px rgba(40, 61, 115, 0.10);
+  border-color: rgba(214, 168, 79, 0.45);
 }
 .package-card__media {
   position: relative;

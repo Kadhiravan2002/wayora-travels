@@ -45,10 +45,10 @@
 
 .about-approach__heading {
   font-family: var(--font-family-heading);
-  font-size: clamp(2rem, 1.55rem + 1.8vw, 2.75rem);
+  font-size: var(--font-size-section);
   font-weight: var(--font-weight-bold);
   color: var(--color-royal-indigo);
-  line-height: 1.2;
+  line-height: var(--line-height-section);
   margin-bottom: var(--space-md);
   letter-spacing: -0.015em;
   max-width: 540px;
