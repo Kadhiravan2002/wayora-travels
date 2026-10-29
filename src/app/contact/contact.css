@@ -1,3 +1,33 @@
 :host {
   display: block;
 }
+
+/* --------------------------------------------------------------------------
+   Contact Hero Banner (Full-Width at ALL Viewports)
+   -------------------------------------------------------------------------- */
+.contact-hero-banner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.contact-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.contact-hero-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-block: clamp(2.5rem, 5vh, 4rem) !important;
+}
+
+@media (max-width: 768px) {
+  .contact-hero-content {
+    padding-block: clamp(2rem, 4vh, 2.75rem) !important;
+  }
+}

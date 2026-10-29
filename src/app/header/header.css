@@ -5,6 +5,10 @@
   z-index: 1000;
 }
 
+.header {
+  position: relative;
+}
+
 .main-bar {
   background-color: var(--color-surface);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -161,10 +165,14 @@
 }
 
 .mobile-cta {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding-block: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: auto;
+  max-width: 100%;
+  margin-right: auto;
+  padding: 5px 6px 5px 22px;
 }
 
 /* Desktop Media Query (>= 992px) */

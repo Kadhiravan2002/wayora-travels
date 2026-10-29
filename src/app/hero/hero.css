@@ -210,36 +210,57 @@
   }
 }
 
-/* Mobile Layout (<= 767px) — Centered layout with stacked actions */
+/* Mobile Layout (<= 767px) — Left-aligned content with horizontal action buttons */
 @media (max-width: 767px) {
   .hero__content {
     max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
+    margin: 0;
+    text-align: left;
   }
 
   .hero__eyebrow {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero__heading {
-    text-align: center;
+    text-align: left;
   }
 
   .hero__description {
-    text-align: center;
-    margin-inline: auto;
+    text-align: left;
+    margin-inline: 0;
   }
 
   .hero__actions {
-    flex-direction: column;
-    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     width: 100%;
-    gap: 12px;
+    gap: 8px;
   }
 
   .hero__btn-primary,
   .hero__btn-secondary {
-    width: 100%;
+    width: auto;
+    font-size: 0.8125rem;
+    height: 42px;
+    min-height: 42px;
+    flex-shrink: 0;
+  }
+
+  .hero__btn-primary {
+    padding: 4px 5px 4px 12px;
+    gap: 6px;
+  }
+
+  .hero__btn-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero__btn-secondary {
+    padding: 0 12px;
   }
 }

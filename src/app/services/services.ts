@@ -3,12 +3,13 @@ import { RouterLink } from '@angular/router';
 
 export interface ServiceDetail {
   id: string;
+  categoryLabel: string;
   title: string;
-  subtitle: string;
+  descriptor: string;
   description: string;
-  features: string[];
+  highlights: string[];
   image: string;
-  icon: 'map' | 'suitcase' | 'bed' | 'binoculars';
+  alt: string;
 }
 
 export interface TravelCategory {
@@ -32,50 +33,47 @@ export class ServicesComponent {
   readonly servicesList: ServiceDetail[] = [
     {
       id: 'itinerary',
+      categoryLabel: 'PERSONALISED PLANNING',
       title: 'Personalised Travel & Route Planning',
-      subtitle: 'Your trip, planned around you.',
-      description: 'Personalised travel plans that fit your schedule, interests, and pace.',
-      features: ['Personalised routes', 'Day-by-day planning', 'Practical travel guidance'],
+      descriptor: 'Routes shaped around you',
+      description:
+        "Personalised travel plans tailored to each traveller's interests, schedule, and pace.",
+      highlights: ['Custom routes', 'Day-by-day planning', 'Practical guidance'],
       image: 'images/services-travel-planning.jpg',
-      icon: 'map',
+      alt: 'Travel planning map, camera, and itinerary guide on wooden surface',
     },
     {
       id: 'packages',
+      categoryLabel: 'TAILORED HOLIDAYS',
       title: 'Tailored Holiday Packages',
-      subtitle: 'More to discover, less to organise.',
+      descriptor: 'More to discover, less to organise',
       description:
-        'Bring destinations, local experiences, and relaxing stays together in one trip.',
-      features: ['Multi-destination holidays', 'Transport coordination', 'Flexible itineraries'],
+        'Thoughtfully coordinated holidays combining destinations, local experiences, and comfortable stays.',
+      highlights: ['Multi-stop journeys', 'Transport coordination', 'Flexible itineraries'],
       image: 'images/services-kerala-houseboat.jpg',
-      icon: 'suitcase',
+      alt: 'Scenic traditional Kerala houseboat cruising through tranquil backwaters',
     },
     {
       id: 'accommodations',
+      categoryLabel: 'STAYS & COMFORT',
       title: 'Accommodation Assistance',
-      subtitle: 'A stay that suits your journey.',
+      descriptor: 'A stay that suits your journey',
       description:
-        'Find the right stay, from heritage properties to peaceful backwater retreats.',
-      features: [
-        'Heritage and boutique stays',
-        'Comfortable room options',
-        'Destination-based recommendations',
-      ],
+        'Find suitable accommodation, from heritage properties to peaceful retreats, based on your travel preferences.',
+      highlights: ['Stay recommendations', 'Location guidance', 'Comfort and convenience'],
       image: 'images/services-accommodation.jpg',
-      icon: 'bed',
+      alt: 'Luxury heritage resort stay with traditional Indian architectural details',
     },
     {
       id: 'experiences',
+      categoryLabel: 'LOCAL DISCOVERIES',
       title: 'Local Experiences & Sightseeing',
-      subtitle: 'See India beyond the usual sights.',
+      descriptor: 'Experience India beyond the usual sights',
       description:
-        'Discover regional food, local traditions, historic places, and beautiful landscapes.',
-      features: [
-        'Local sightseeing guides',
-        'Cultural and culinary activities',
-        'Nature and heritage excursions',
-      ],
+        'Discover regional food, local traditions, historic places, and meaningful experiences across India.',
+      highlights: ['Cultural discoveries', 'Sightseeing planning', 'Regional experiences'],
       image: 'images/services-sightseeing-heritage.jpg',
-      icon: 'binoculars',
+      alt: 'Historic Indian palace architecture illuminated during a cultural heritage tour',
     },
   ];
 

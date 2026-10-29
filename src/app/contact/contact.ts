@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CONTACT_INFO } from '../contact-info';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,8 +15,12 @@ export class ContactComponent implements OnInit {
   readonly contact = CONTACT_INFO;
   readonly contactForm: FormGroup;
   readonly isSubmitted = signal(false);
+  readonly isSubmitting = signal(false);
   readonly submissionSuccess = signal(false);
+  readonly errorMessage = signal<string | null>(null);
+
   private readonly route = inject(ActivatedRoute, { optional: true });
+  private readonly contactService = inject(ContactService);
 
   /**
    * Evaluates whether a valid Google Maps embed iframe URL is configured.
@@ -48,6 +53,7 @@ export class ContactComponent implements OnInit {
       phone: ['', [Validators.pattern('^[+0-9\\s-]{7,16}$')]],
       destination: [''],
       message: ['', [Validators.required, Validators.minLength(10)]],
+      hp_company: [''],
     });
   }
 
@@ -85,14 +91,35 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     this.isSubmitted.set(true);
 
-    if (this.contactForm.valid) {
-      this.submissionSuccess.set(true);
+    if (this.contactForm.valid && !this.isSubmitting()) {
+      this.isSubmitting.set(true);
+      this.errorMessage.set(null);
+
+      this.contactService.sendEnquiry(this.contactForm.value).subscribe({
+        next: (res) => {
+          this.isSubmitting.set(false);
+          if (res.success) {
+            this.submissionSuccess.set(true);
+          } else {
+            this.errorMessage.set(res.message || 'Unable to send enquiry. Please try again.');
+          }
+        },
+        error: (err) => {
+          this.isSubmitting.set(false);
+          const serverMsg = err.error?.message;
+          this.errorMessage.set(
+            serverMsg || 'Unable to connect to the enquiry service. Please try again later or email us directly.'
+          );
+        },
+      });
     }
   }
 
   resetForm(): void {
     this.contactForm.reset();
     this.isSubmitted.set(false);
+    this.isSubmitting.set(false);
     this.submissionSuccess.set(false);
+    this.errorMessage.set(null);
   }
 }

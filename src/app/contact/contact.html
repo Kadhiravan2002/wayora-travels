@@ -1,32 +1,30 @@
 <!-- 1. Page Banner -->
-<section class="page-banner-section">
-  <div class="container">
-    <div class="page-banner" aria-labelledby="contact-banner-title">
-      <div class="page-banner__backdrop" aria-hidden="true">
-        <img
-          src="images/wayora-cta-landscape.jpg"
-          alt=""
-          class="page-banner__bg"
-          loading="eager"
-        />
-        <div class="page-banner__overlay"></div>
+<section class="page-banner contact-hero-banner" aria-labelledby="contact-banner-title">
+  <div class="page-banner__backdrop" aria-hidden="true">
+    <img
+      src="images/wayora-cta-landscape.jpg"
+      alt=""
+      class="page-banner__bg"
+      loading="eager"
+    />
+    <div class="page-banner__overlay"></div>
+  </div>
+  <div class="container contact-hero-container">
+    <div class="page-banner__content contact-hero-content">
+      <div class="page-banner__eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>GET IN TOUCH</span>
       </div>
-      <div class="page-banner__content">
-        <div class="page-banner__eyebrow">
-          <span class="eyebrow-accent" aria-hidden="true"></span>
-          <span>GET IN TOUCH</span>
-        </div>
-        <h1 id="contact-banner-title" class="page-banner__title">Contact WAYORA Travels</h1>
-        <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
-          <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
-          <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
-          <span class="page-banner__breadcrumb-current">Contact</span>
-        </nav>
-        <p class="page-banner__subtitle">
-          Have a question or looking to plan your next journey across India? Reach out to our travel
-          specialists today.
-        </p>
-      </div>
+      <h1 id="contact-banner-title" class="page-banner__title">Contact WAYORA Travels</h1>
+      <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
+        <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
+        <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
+        <span class="page-banner__breadcrumb-current">Contact</span>
+      </nav>
+      <p class="page-banner__subtitle">
+        Have a question or looking to plan your next journey across India? Reach out to our travel
+        specialists today.
+      </p>
     </div>
   </div>
 </section>
@@ -225,6 +223,21 @@
               novalidate
               class="contact-form"
             >
+              <!-- Honeypot anti-spam trap (invisible to human visitors) -->
+              <input
+                type="text"
+                formControlName="hp_company"
+                style="display:none !important; position:absolute; left:-9999px;"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+
+              @if (errorMessage()) {
+                <div class="form-feedback form-feedback--error" role="alert" style="margin-bottom: var(--space-md); padding: 0.85rem 1rem; background-color: #fee4e2; border: 1px solid #fecdca; border-radius: var(--radius-sm); color: #b42318; font-size: 0.875rem; line-height: 1.5;">
+                  {{ errorMessage() }}
+                </div>
+              }
               <!-- Row 1: Full Name & Email Address -->
               <div class="form-row">
                 <!-- Full Name -->
@@ -342,9 +355,18 @@
               </div>
 
               <!-- Submit Button -->
-              <button type="submit" class="btn btn--primary contact-form__submit">
-                <span>Send Enquiry</span>
-                <span class="contact-form__submit-arrow" aria-hidden="true">→</span>
+              <button
+                type="submit"
+                class="btn btn--primary contact-form__submit"
+                [disabled]="isSubmitting()"
+                [attr.aria-busy]="isSubmitting()"
+              >
+                @if (isSubmitting()) {
+                  <span>Sending Enquiry...</span>
+                } @else {
+                  <span>Send Enquiry</span>
+                  <span class="contact-form__submit-arrow" aria-hidden="true">→</span>
+                }
               </button>
 
               <p class="contact-form__backend-notice">

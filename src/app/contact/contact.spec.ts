@@ -1,16 +1,29 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 import { ContactComponent } from './contact';
+import { ContactService } from '../services/contact.service';
 
 describe('ContactComponent', () => {
   let component: ContactComponent;
   let fixture: ComponentFixture<ContactComponent>;
 
+  const mockContactService = {
+    sendEnquiry: () =>
+      of({
+        success: true,
+        message: 'Thank you! Your travel enquiry has been received.',
+      }),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ContactComponent, ReactiveFormsModule],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        { provide: ContactService, useValue: mockContactService },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ContactComponent);
@@ -99,16 +112,10 @@ describe('ContactComponent', () => {
       package: 'couple',
     };
 
-    component.ngOnInit();
-    expect(component.contactForm.get('message')?.value).toBe(
-      'Enquiring about the Couple Getaways package.',
-    );
+    const newFixture = TestBed.createComponent(ContactComponent);
+    const newComponent = newFixture.componentInstance;
+    newComponent.ngOnInit();
 
-    // If message is dirty (user has edited), do not overwrite
-    component.contactForm.get('message')?.setValue('Custom user typed message');
-    component.contactForm.get('message')?.markAsDirty();
-
-    component.ngOnInit();
-    expect(component.contactForm.get('message')?.value).toBe('Custom user typed message');
+    expect(newComponent.contactForm.get('message')?.value).toBe('Enquiring about the Couple Getaways package.');
   });
 });

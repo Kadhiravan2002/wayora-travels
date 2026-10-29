@@ -1,32 +1,30 @@
 <!-- 1. Page Banner -->
-<section class="page-banner-section">
-  <div class="container">
-    <div class="page-banner" aria-labelledby="services-banner-title">
-      <div class="page-banner__backdrop" aria-hidden="true">
-        <img
-          src="images/kerala-tea-plantations.jpg"
-          alt=""
-          class="page-banner__bg"
-          loading="eager"
-        />
-        <div class="page-banner__overlay"></div>
+<section class="page-banner services-hero-banner" aria-labelledby="services-banner-title">
+  <div class="page-banner__backdrop" aria-hidden="true">
+    <img
+      src="images/kerala-tea-plantations.jpg"
+      alt=""
+      class="page-banner__bg"
+      loading="eager"
+    />
+    <div class="page-banner__overlay"></div>
+  </div>
+  <div class="container services-hero-container">
+    <div class="page-banner__content services-hero-content">
+      <div class="page-banner__eyebrow">
+        <span class="eyebrow-accent" aria-hidden="true"></span>
+        <span>WHAT WE OFFER</span>
       </div>
-      <div class="page-banner__content">
-        <div class="page-banner__eyebrow">
-          <span class="eyebrow-accent" aria-hidden="true"></span>
-          <span>WHAT WE OFFER</span>
-        </div>
-        <h1 id="services-banner-title" class="page-banner__title">Our Travel Services</h1>
-        <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
-          <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
-          <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
-          <span class="page-banner__breadcrumb-current">Services</span>
-        </nav>
-        <p class="page-banner__subtitle">
-          Comprehensive, dependable travel planning services designed to turn your Indian travel vision
-          into a seamless reality.
-        </p>
-      </div>
+      <h1 id="services-banner-title" class="page-banner__title">Our Travel Services</h1>
+      <nav class="page-banner__breadcrumbs" aria-label="Breadcrumb">
+        <a routerLink="/" class="page-banner__breadcrumb-link">Home</a>
+        <span class="page-banner__breadcrumb-sep" aria-hidden="true">»</span>
+        <span class="page-banner__breadcrumb-current">Services</span>
+      </nav>
+      <p class="page-banner__subtitle">
+        Comprehensive, dependable travel planning services designed to turn your Indian travel vision
+        into a seamless reality.
+      </p>
     </div>
   </div>
 </section>
@@ -52,80 +50,74 @@
       </p>
     </div>
 
-    <!-- 2x2 Services Grid (Left Photograph + Right Content) -->
+    <!-- 2x2 Services Grid (Redesigned Travel Package Card Architecture) -->
     <div class="services-main__grid reveal-stagger-directional">
       @for (item of servicesList; track item.id) {
         <article class="service-detail-card">
-          <!-- Left: Tall Rectangular Travel Photograph -->
+          <!-- Primary Travel Photography with Floating Label & Lower Edge Descriptor -->
           <div class="service-detail-card__media">
             <img
               [src]="item.image"
-              [alt]="item.title"
+              [alt]="item.alt"
               class="service-detail-card__img"
-              width="210"
-              height="350"
               loading="lazy"
             />
+            <!-- Floating Service-Category Label -->
+            <span class="service-detail-card__category-badge">
+              {{ item.categoryLabel }}
+            </span>
+            <!-- Location-Style Service Descriptor Over Lower Edge with Gold Icon -->
+            <div class="service-detail-card__descriptor-bar" aria-hidden="true">
+              <svg
+                class="service-detail-card__descriptor-icon"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span class="service-detail-card__descriptor-text">{{ item.descriptor }}</span>
+            </div>
           </div>
 
-          <!-- Right: Content Column -->
+          <!-- Card Content Area Below Image -->
           <div class="service-detail-card__content">
-            <div class="service-detail-card__header">
-              <div class="service-detail-card__icon" aria-hidden="true">
-                @switch (item.icon) {
-                  @case ('map') {
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
-                      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
-                      <line x1="9" y1="3" x2="9" y2="18"></line>
-                      <line x1="15" y1="6" x2="15" y2="21"></line>
-                    </svg>
-                  }
-                  @case ('suitcase') {
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
-                      <rect x="2" y="7" width="20" height="14" rx="3" ry="3"></rect>
-                      <path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"></path>
-                      <line x1="12" y1="12" x2="12" y2="12.01"></line>
-                    </svg>
-                  }
-                  @case ('bed') {
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
-                      <path d="M2 4v16"></path>
-                      <path d="M2 8h18a2 2 0 0 1 2 2v10"></path>
-                      <path d="M2 17h20"></path>
-                      <path d="M6 8v4"></path>
-                    </svg>
-                  }
-                  @case ('binoculars') {
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="service-icon-svg">
-                      <path d="M10 10h4"></path>
-                      <path d="M19 7l-2 11h-4l1-11"></path>
-                      <path d="M5 7l2 11h4l-1-11"></path>
-                      <circle cx="7" cy="6" r="3"></circle>
-                      <circle cx="17" cy="6" r="3"></circle>
-                    </svg>
-                  }
-                }
-              </div>
-              <div class="service-detail-card__titles">
-                <h3 class="service-detail-card__title">{{ item.title }}</h3>
-                <p class="service-detail-card__subtitle">{{ item.subtitle }}</p>
-              </div>
-            </div>
-
+            <h3 class="service-detail-card__title">{{ item.title }}</h3>
             <p class="service-detail-card__desc">{{ item.description }}</p>
 
-            <div class="service-detail-card__features">
-              <h4 class="service-detail-card__features-title">HIGHLIGHTS:</h4>
-              <ul class="service-detail-card__features-list">
-                @for (feat of item.features; track feat) {
-                  <li>
-                    <span class="service-detail-card__bullet" aria-hidden="true">&#10003;</span>
-                    <span>{{ feat }}</span>
-                  </li>
-                }
-              </ul>
+            <!-- Compact Row of Service Highlights with Gold Icons -->
+            <div class="service-detail-card__highlights" aria-label="Key highlights">
+              @for (feat of item.highlights; track feat) {
+                <span class="service-detail-card__highlight-tag">
+                  <svg
+                    class="service-detail-card__highlight-icon"
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ feat }}</span>
+                </span>
+              }
             </div>
 
+            <!-- Thin Subtle Divider -->
+            <div class="service-detail-card__divider" aria-hidden="true"></div>
+
+            <!-- Clear Service-Focused Enquiry Button -->
             <div class="service-detail-card__action">
               <a
                 routerLink="/contact"

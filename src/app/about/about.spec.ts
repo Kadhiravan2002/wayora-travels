@@ -30,7 +30,7 @@ describe('AboutComponent', () => {
   it('should render the company introduction', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const introHeading = compiled.querySelector('#about-intro-heading');
-    expect(introHeading?.textContent?.trim()).toBe('Discover India your way.');
+    expect(introHeading?.textContent?.trim()).toBe('More than destinations. Memories that stay.');
   });
 
   it('should render the company approach split section with 3 points', () => {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Travel Enquiry</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f5f0; color: #1a233a;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f7f5f0; padding: 24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e8e3d8;">
+          <!-- Header -->
+          <tr>
+            <td style="background-color: #121c34; padding: 28px 32px; text-align: left;">
+              <div style="color: #d6a84f; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">
+                WAYORA TRAVELS &bull; WEBSITE ENQUIRY
+              </div>
+              <h1 style="color: #ffffff; font-size: 22px; margin: 0; font-weight: 700; line-height: 1.3;">
+                New Travel Consultation Request
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Content Body -->
+          <tr>
+            <td style="padding: 32px;">
+              <p style="font-size: 15px; line-height: 1.6; color: #475467; margin: 0 0 24px 0;">
+                You received a new inquiry via the WAYORA Travels contact form. You can reply directly to this email to contact the traveler.
+              </p>
+
+              <!-- Details Table -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; border-bottom: 1px solid #ede8de; font-weight: 600; color: #121c34; width: 35%; font-size: 14px;">
+                    Full Name
+                  </td>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; border-bottom: 1px solid #ede8de; color: #1a233a; font-size: 14px;">
+                    {{FULL_NAME}}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 14px; border-bottom: 1px solid #ede8de; font-weight: 600; color: #121c34; font-size: 14px;">
+                    Email Address
+                  </td>
+                  <td style="padding: 10px 14px; border-bottom: 1px solid #ede8de; color: #1a233a; font-size: 14px;">
+                    <a href="mailto:{{EMAIL}}" style="color: #1f3a7a; text-decoration: underline;">{{EMAIL}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; border-bottom: 1px solid #ede8de; font-weight: 600; color: #121c34; font-size: 14px;">
+                    Phone Number
+                  </td>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; border-bottom: 1px solid #ede8de; color: #1a233a; font-size: 14px;">
+                    {{PHONE}}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 14px; border-bottom: 1px solid #ede8de; font-weight: 600; color: #121c34; font-size: 14px;">
+                    Destination / Package
+                  </td>
+                  <td style="padding: 10px 14px; border-bottom: 1px solid #ede8de; color: #1a233a; font-size: 14px;">
+                    <span style="display: inline-block; background-color: #fbf5e8; color: #9a6f18; font-weight: 600; padding: 3px 8px; border-radius: 4px; font-size: 13px;">
+                      {{DESTINATION}}
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; font-weight: 600; color: #121c34; font-size: 14px; vertical-align: top;">
+                    Submitted Message
+                  </td>
+                  <td style="padding: 10px 14px; background-color: #faf8f5; color: #1a233a; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">
+{{MESSAGE}}
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Meta Info -->
+              <div style="padding-top: 16px; border-top: 1px solid #ede8de; font-size: 12px; color: #8a92a6;">
+                Submitted on: <strong>{{SUBMITTED_AT}}</strong> &bull; Client IP: <code>{{CLIENT_IP}}</code>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #faf8f5; padding: 18px 32px; text-align: center; font-size: 12px; color: #8a92a6; border-top: 1px solid #ede8de;">
+              WAYORA Travels &bull; Seamless, personalized itineraries across India.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

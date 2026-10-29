@@ -23,15 +23,12 @@ export class HeaderComponent {
   ];
 
   toggleMobileMenu(): void {
-    const nextState = !this.isMobileMenuOpen();
-    this.isMobileMenuOpen.set(nextState);
-    this.updateBodyScroll(!nextState);
+    this.isMobileMenuOpen.update((open) => !open);
   }
 
   closeMobileMenu(): void {
     if (this.isMobileMenuOpen()) {
       this.isMobileMenuOpen.set(false);
-      this.updateBodyScroll(true);
     }
   }
 
@@ -44,12 +41,6 @@ export class HeaderComponent {
   onResize(): void {
     if (typeof window !== 'undefined' && window.innerWidth >= 992 && this.isMobileMenuOpen()) {
       this.closeMobileMenu();
-    }
-  }
-
-  private updateBodyScroll(allowScroll: boolean): void {
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = allowScroll ? '' : 'hidden';
     }
   }
 }

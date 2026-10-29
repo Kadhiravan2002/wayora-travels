@@ -44,13 +44,20 @@ describe('ServicesComponent', () => {
     expect(cards.length).toBe(4);
 
     expect(compiled.textContent).toContain('Personalised Travel & Route Planning');
-    expect(compiled.textContent).toContain('Your trip, planned around you.');
+    expect(compiled.textContent).toContain('Routes shaped around you');
+    expect(compiled.textContent).toContain('PERSONALISED PLANNING');
+
     expect(compiled.textContent).toContain('Tailored Holiday Packages');
-    expect(compiled.textContent).toContain('More to discover, less to organise.');
+    expect(compiled.textContent).toContain('More to discover, less to organise');
+    expect(compiled.textContent).toContain('TAILORED HOLIDAYS');
+
     expect(compiled.textContent).toContain('Accommodation Assistance');
-    expect(compiled.textContent).toContain('A stay that suits your journey.');
+    expect(compiled.textContent).toContain('A stay that suits your journey');
+    expect(compiled.textContent).toContain('STAYS & COMFORT');
+
     expect(compiled.textContent).toContain('Local Experiences & Sightseeing');
-    expect(compiled.textContent).toContain('See India beyond the usual sights.');
+    expect(compiled.textContent).toContain('Experience India beyond the usual sights');
+    expect(compiled.textContent).toContain('LOCAL DISCOVERIES');
   });
 
   it('should render the curated travel categories section with 4 image-led cards including Group Adventures', () => {

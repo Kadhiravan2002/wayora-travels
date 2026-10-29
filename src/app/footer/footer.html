@@ -118,6 +118,15 @@
           (submit)="onNewsletterSubmit($event)"
           aria-label="Newsletter subscription"
         >
+          <!-- Honeypot anti-spam trap (invisible to human visitors) -->
+          <input
+            type="text"
+            name="hp_company"
+            style="display:none !important; position:absolute; left:-9999px;"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
           <div class="footer__input-wrap">
             <input
               type="email"
@@ -125,8 +134,14 @@
               class="footer__input"
               aria-label="Email address for travel updates"
               required
+              [disabled]="isSubmitting()"
             />
-            <button type="submit" class="footer__submit-btn" aria-label="Submit email address">
+            <button
+              type="submit"
+              class="footer__submit-btn"
+              aria-label="Submit email address"
+              [disabled]="isSubmitting()"
+            >
               <svg
                 width="18"
                 height="18"

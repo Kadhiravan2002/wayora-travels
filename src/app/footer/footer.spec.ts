@@ -1,15 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { of } from 'rxjs';
 import { FooterComponent } from './footer';
+import { NewsletterService } from '../services/newsletter.service';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
+  const mockNewsletterService = {
+    subscribe: () =>
+      of({
+        success: true,
+        message: 'Thank you for subscribing! Our seasonal travel guides and itineraries will arrive in your inbox.',
+      }),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FooterComponent],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        { provide: NewsletterService, useValue: mockNewsletterService },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);

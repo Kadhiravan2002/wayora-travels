@@ -1,0 +1,12 @@
+# Environment Configuration
+.env
+.env.local
+.env.*.local
+
+# Logs and runtime caches
+*.log
+.phpunit.result.cache
+
+# Operating System Files
+.DS_Store
+Thumbs.db
