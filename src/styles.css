@@ -4021,17 +4021,6 @@ textarea.form-control {
   transform: translateX(4px);
 }
 
-@media (max-width: 900px) {
-  .services-main__grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-  .service-detail-card__media {
-    height: 200px;
-    min-height: 200px;
-  }
-}
-
 @media (min-width: 641px) and (max-width: 1024px) {
   .services-main__header {
     text-align: left;
@@ -4047,9 +4036,85 @@ textarea.form-control {
   .services-main__header .eyebrow .eyebrow-accent:last-child {
     display: none;
   }
+
+  .services-main__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 1.75vw, 1.35rem);
+    align-items: stretch;
+  }
+
+  .service-detail-card {
+    padding: 12px;
+  }
+
+  .service-detail-card__media {
+    height: 175px;
+    min-height: 175px;
+  }
+
+  .service-detail-card__category-badge {
+    top: 8px;
+    right: 8px;
+    padding: 3px 8px;
+    font-size: 0.625rem;
+  }
+
+  .service-detail-card__descriptor-bar {
+    padding: 20px 10px 8px;
+    gap: 5px;
+  }
+
+  .service-detail-card__descriptor-text {
+    font-size: 0.75rem;
+  }
+
+  .service-detail-card__content {
+    padding-top: 0.75rem;
+    padding-inline: 0.1rem;
+  }
+
+  .service-detail-card__title {
+    font-size: 1.0625rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .service-detail-card__desc {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    margin-bottom: 0.65rem;
+  }
+
+  .service-detail-card__highlights {
+    gap: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-detail-card__highlight-tag {
+    padding: 2px 7px;
+    font-size: 0.7rem;
+    gap: 3px;
+  }
+
+  .service-detail-card__divider {
+    margin-bottom: 0.75rem;
+  }
+
+  .service-detail-card__btn {
+    height: 36px;
+    min-height: 36px;
+    padding: 0 0.95rem;
+    font-size: 0.775rem;
+    gap: 6px;
+    width: auto;
+    align-self: flex-start;
+  }
 }
 
 @media (max-width: 640px) {
+  .services-main__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
   .services-main__header-wrap {
     flex-direction: column;
     align-items: flex-start;
